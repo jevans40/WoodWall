@@ -1,0 +1,10 @@
+digraph "OP::Window::Window"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="OP::Window::Window",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Constructor."];
+  Node0 -> Node1 [color="midnightblue",fontsize="10",style="solid"];
+  Node1 [label="OP::Window::Init",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_o_p_1_1_window.html#a452317c004aabcfdb3a3e9406df86ff1",tooltip="Initializes the window and GLFW."];
+}

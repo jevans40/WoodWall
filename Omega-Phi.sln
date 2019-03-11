@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Omega-Phi", "Omega-Phi\Omega-Phi.vcxproj", "{435D5B7B-B611-4229-AA73-A9EF9DFCCB16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{435D5B7B-B611-4229-AA73-A9EF9DFCCB16}.Debug|x64.ActiveCfg = Debug|x64
+		{435D5B7B-B611-4229-AA73-A9EF9DFCCB16}.Debug|x64.Build.0 = Debug|x64
+		{435D5B7B-B611-4229-AA73-A9EF9DFCCB16}.Debug|x86.ActiveCfg = Debug|Win32
+		{435D5B7B-B611-4229-AA73-A9EF9DFCCB16}.Debug|x86.Build.0 = Debug|Win32
+		{435D5B7B-B611-4229-AA73-A9EF9DFCCB16}.Release|x64.ActiveCfg = Release|x64
+		{435D5B7B-B611-4229-AA73-A9EF9DFCCB16}.Release|x64.Build.0 = Release|x64
+		{435D5B7B-B611-4229-AA73-A9EF9DFCCB16}.Release|x86.ActiveCfg = Release|Win32
+		{435D5B7B-B611-4229-AA73-A9EF9DFCCB16}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BE25F21A-F192-4484-95D2-2D1829913A44}
+	EndGlobalSection
+EndGlobal
