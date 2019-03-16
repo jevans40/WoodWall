@@ -33,16 +33,6 @@ void OP::Game::Init(const char* gameName, int x , int y )
 	shader = new OP::Shader("VertexShader.vert", "FragShader.frag");
 }
 
-#pragma pack(push, 0)
-
-struct Vertex {
-	float Pos[2];
-	float TexPos[2];
-	unsigned int Color;
-	unsigned int TexMap;
-};
-
-#pragma pack(pop)
 
 void OP::Game::Render()
 {
