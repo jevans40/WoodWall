@@ -1,0 +1,25 @@
+﻿  FileLoader.cpp
+  Game.cpp
+  Layer.cpp
+  main.cpp
+  Shader.cpp
+c:\users\jesse\documents\github\woodwall\omega-phi\fileloader.h(12): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+  Window.cpp
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  Generating code
+  All 158 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+Shader.obj : warning LNK4049: locally defined symbol __glewLinkProgram imported
+Shader.obj : warning LNK4049: locally defined symbol __glewDeleteShader imported
+Shader.obj : warning LNK4049: locally defined symbol __glewGetProgramInfoLog imported
+Shader.obj : warning LNK4049: locally defined symbol __glewDetachShader imported
+Shader.obj : warning LNK4049: locally defined symbol __glewShaderSource imported
+Shader.obj : warning LNK4049: locally defined symbol __glewAttachShader imported
+Shader.obj : warning LNK4049: locally defined symbol __glewGetProgramiv imported
+Shader.obj : warning LNK4049: locally defined symbol __glewGetShaderInfoLog imported
+Shader.obj : warning LNK4049: locally defined symbol __glewCreateProgram imported
+Shader.obj : warning LNK4049: locally defined symbol __glewCreateShader imported
+Shader.obj : warning LNK4049: locally defined symbol __glewCompileShader imported
+Shader.obj : warning LNK4049: locally defined symbol __glewGetShaderiv imported
+glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'C:\Users\Jesse\Documents\GitHub\WoodWall\x64\Release\vc120.pdb'; linking object as if no debug info
+  Omega-Phi.vcxproj -> C:\Users\Jesse\Documents\GitHub\WoodWall\x64\Release\Omega-Phi.exe

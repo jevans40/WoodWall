@@ -20,8 +20,8 @@ namespace OP {
 		const char* l_name;
 		Window* l_Window;
 		short l_Priority;
-		//TODO: Add Renderable Vector
 		//TODO: Add Shaders
+		//TODO: Add Renderable Vector
 
 	public:
 

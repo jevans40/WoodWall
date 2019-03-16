@@ -1,6 +1,7 @@
 #pragma once
 #include "Layer.h"
 #include "Window.h"
+#include "Shader.h"
 
 namespace OP{
 
@@ -8,7 +9,7 @@ namespace OP{
 	private:
 		Layer* l_Layers;
 		Window* l_Window;
-
+		Shader* shader;
 
 	public:
 
