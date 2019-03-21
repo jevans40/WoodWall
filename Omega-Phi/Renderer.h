@@ -1,14 +1,15 @@
 #pragma once
-#include "Renderable.h"
+#include "Layer.h"
 #include <vector>
 
 namespace OP {
 
 	class Renderer {
 	private:
-		 std::vector<Vertex> VertexBuffer;
+		 std::vector<Layer *> l_Layers;
 		 int numOfSprites;
 
+	public:
 		 Renderer();
 
 		 void Init();
@@ -17,7 +18,7 @@ namespace OP {
 
 		 void RemoveTexture(int TextureIndex);
 
-		 void Submit(Renderable toRender);
+		 void addLayer(Layer *toRender);
 
 		 void RenderFont();
 

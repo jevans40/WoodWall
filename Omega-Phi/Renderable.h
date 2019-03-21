@@ -1,6 +1,9 @@
 #pragma once
 #include "OPMath.h"
 namespace OP {
+
+
+
 #pragma pack(push, 0)
 
 	struct Vertex {
@@ -10,6 +13,7 @@ namespace OP {
 		int texMap = 0;
 
 		Vertex() {};
+
 	};
 
 #pragma pack(pop)
@@ -61,7 +65,7 @@ namespace OP {
 		 *
 		 * @brief	Default constructor
 		 */
-	private:
+	public:
 
 		Renderable();
 
@@ -130,10 +134,50 @@ namespace OP {
 
 		void setSize(fvec2 size = fvec2(1,1));
 
+		/**
+		 * @fn	float Renderable::getXPos();
+		 *
+		 * @brief	Get x coordinate position
+		 *
+		 * @returns	The x coordinate position.
+		 */
 
 		float getXPos();
+
+		/**
+		 * @fn	float Renderable::getYPos();
+		 *
+		 * @brief	Get y coordinate position
+		 *
+		 * @returns	The y coordinate position.
+		 */
+
 		float getYPos();
+
+		/**
+		 * @fn	float Renderable::getZPos();
+		 *
+		 * @brief	Get z coordinate position
+		 *
+		 * @returns	The z coordinate position.
+		 */
+
 		float getZPos();
 
+		/**
+		 * @fn	Vertex Renderable::getVertexArray(int vertexIndex);
+		 *
+		 * @brief	Gets vertex array
+		 *
+		 * @param	vertexIndex	Zero-based index of the vertex.
+		 *
+		 * @returns	The vertex array.
+		 */
+
+		Vertex getVertexArray(int vertexIndex);
+
+		virtual void Update(int time);
+
+		static unsigned int GetColor(unsigned char r, unsigned char g, unsigned char b, unsigned char a);
 	};
 }

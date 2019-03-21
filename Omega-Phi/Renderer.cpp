@@ -1,5 +1,7 @@
+
 #include "Renderer.h"
 #include <GL/glew.h>
+#include <algorithm>
 
 OP::Renderer::Renderer()
 {
@@ -9,42 +11,24 @@ OP::Renderer::Renderer()
 void OP::Renderer::Init()
 {
 
-	glGenVertexArrays(1, &vertexArray);
-	glGenBuffers(1, &vertexArrayBuffer);
-	//glGenBuffers(1, &elementArrayBuffer);
+}
 
-	//GLuint elements[] = { 0, 1, 2, 2, 3, 0 };
+void OP::Renderer::addLayer(Layer *toRender)
+{
+	l_Layers.push_back(toRender);
+	//std::sort(l_Layers.begin(), l_Layers.end(), [](Layer layer1, Layer layer2) {return layer1.getPriority() < layer2.getPriority(); });
+}
 
-
-
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-	glBindVertexArray(vertexArray);
-
-	glBindBuffer(GL_ARRAY_BUFFER, vertexArrayBuffer);
-
-
-
+void OP::Renderer::commitRender()
+{
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	//Converting Vertex into a OpenGL readable object
 
-	glEnableVertexAttribArray(0);
-	glEnableVertexAttribArray(1);
-	glEnableVertexAttribArray(2);
-	glEnableVertexAttribArray(3);
-
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*)0);
-
-	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*)(offsetof(Vertex, Vertex::texPos)));
-
-	glVertexAttribPointer(2, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(Vertex), (const GLvoid*)(offsetof(Vertex, Vertex::color)));
-
-	glVertexAttribPointer(3, 1, GL_UNSIGNED_INT, GL_FALSE, sizeof(Vertex), (const GLvoid*)(offsetof(Vertex, Vertex::texMap)));
-
-
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
-
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glBindVertexArray(0);
+	//Uniforms
+	for (int i = 0; i < l_Layers.size(); i++) {
+		glUseProgram(l_Layers[i]->getShader().getShaderProgram());
+		l_Layers[i]->getVertexBuffer().Bind();
+		glDrawArrays(GL_QUADS, 0, l_Layers[i]->getVertexBuffer().getSize());
+		l_Layers[i]->getVertexBuffer().Unbind();
+	}
 }

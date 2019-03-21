@@ -1,15 +1,14 @@
 #pragma once
 #include "Layer.h"
 #include "Window.h"
-#include "Shader.h"
-
+#include "Renderer.h"
 namespace OP{
 
 	class Game {
-	private:
-		Layer* l_Layers;
+	protected:
+		std::vector<Layer*> l_Layers;
 		Window* l_Window;
-		Shader* shader;
+		Renderer l_Renderer;
 
 	public:
 
@@ -48,7 +47,7 @@ namespace OP{
 		 * @brief	Initializes the Window and other Game related things
 		 */
 
-		void Init(const char* gameName = "GameName", int x = 0, int y = 0);
+		virtual void Init();
 
 		/**
 		 * @fn	void Game::AddLayer(Layer newLayer);
@@ -59,7 +58,7 @@ namespace OP{
 		 * @param	newLayer	The new layer.
 		 */
 
-		void AddLayer(Layer newLayer);
+		void AddLayer(Layer &newLayer);
 
 		/**
 		 * @fn	void Game::RemoveLayer(char* layerName);

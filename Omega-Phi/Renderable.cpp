@@ -1,5 +1,5 @@
 #include "Renderable.h"
-
+#include <iostream>
 OP::Renderable::Renderable()
 {
 	setSize();
@@ -12,6 +12,7 @@ OP::Renderable::Renderable()
 
 OP::Renderable::Renderable(fvec3 pos , fvec2 size, unsigned int Color, fvec2 TexPos, int TexMap)
 {
+	std::cout << sizeof(Vertex);
 	setSize(size);
 	setZPos(pos.z);
 	setColor(Color);
@@ -58,10 +59,42 @@ void OP::Renderable::setColor(unsigned int Color)
 
 void OP::Renderable::setSize(fvec2 size)
 {
-	this->Size.x;
-	this->Size.y;
+	this->Size.x = size.x;
+	this->Size.y = size.y;
 	this->setXPos(this->Pos.x);
-	this->setXPos(this->Pos.y);
+	this->setYPos(this->Pos.y);
+}
+
+float OP::Renderable::getXPos()
+{
+	return Pos.x;
+}
+
+float OP::Renderable::getYPos()
+{
+	return Pos.y;
+}
+
+float OP::Renderable::getZPos()
+{
+	return Pos.z;
+}
+
+OP::Vertex OP::Renderable::getVertexArray(int vertex)
+{
+	return (vertex < 4 && vertex > -1 ? VertData[vertex] : Vertex());
+}
+
+void OP::Renderable::Update(int time)
+{
+
+}
+
+unsigned int OP::Renderable::GetColor(unsigned char r, unsigned char g, unsigned char b, unsigned char a = 0xFF)
+{
+	unsigned int Color = (int(a) >> 24) + (int(r) >> 16) + (int(b) >> 8) + (int(g) >> 0) ;
+	std::cout << Color << '\n';
+	return Color;
 }
 
 void OP::Renderable::setTexx(float Texx)
@@ -91,3 +124,6 @@ void OP::Renderable::setTexMap(int TexMap)
 	VertData[2].texMap = TexMap;
 	VertData[3].texMap = TexMap;
 }
+
+
+

@@ -80,7 +80,7 @@ namespace OP {
 		bool operator!=(const fvec3& other);
 
 		/**
-		 * @fn	int fvec3::dotProduct(const fvec3& other);
+		 * @fn	float fvec3::dotProduct(const fvec3& other);
 		 *
 		 * @brief	Dot product
 		 *
@@ -89,6 +89,6 @@ namespace OP {
 		 * @returns	An int.
 		 */
 
-		int dotProduct(const fvec3& other);
+		float dotProduct(const fvec3& other);
 	};
 }

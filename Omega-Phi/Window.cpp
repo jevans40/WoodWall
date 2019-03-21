@@ -17,7 +17,8 @@ namespace OP {
 		}
 		printf(message);
 		printf(" ***\n");
-	}
+	}
+
 
 	void GLAPIENTRY
 		MessageCallback(GLenum source,
@@ -52,7 +53,11 @@ namespace OP {
 		glewExperimental = true;
 		GLenum err = glewInit();
 
-		DLL_API void DLL_CALLCONV FreeImage_Initialise(BOOL load_local_plugins_only FI_DEFAULT(FALSE));		FreeImage_SetOutputMessage(FreeImageErrorHandler);
+		DLL_API void DLL_CALLCONV FreeImage_Initialise(BOOL load_local_plugins_only FI_DEFAULT(FALSE));
+
+
+		FreeImage_SetOutputMessage(FreeImageErrorHandler);
+
 
 		if (err != GLEW_OK)
 		{

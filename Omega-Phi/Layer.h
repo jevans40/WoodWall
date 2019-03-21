@@ -1,5 +1,9 @@
 #pragma once
 #include "Window.h"
+#include "Renderable.h"
+#include <vector>
+#include "Shader.h"
+#include "VertexBuffer.h"
 
 /**
  * @namespace	OP
@@ -19,23 +23,35 @@ namespace OP {
 	private:
 		const char* l_name;
 		Window* l_Window;
-		short l_Priority;
-		//TODO: Add Shaders
-		//TODO: Add Renderable Vector
+		int l_Priority;
+		Shader l_Shader;
+		VertexBuffer l_VertexBuffer; 
+		//EVENT HANDLER FOR SENDING A DELETE SIGNAL TO GAME
+		std::vector<Renderable> l_Sprites;
 
 	public:
 
 		/**
-		 * @fn	Layer::Layer(Window* window,const char* name = "Default Name", int priority = 0);
+		 * @fn	Layer::Layer(Window* window, Shader& shader, const char* name, int priority);
 		 *
 		 * @brief	Constructor
 		 *
 		 * @param [in,out]	window  	The window this layer will be on.
-		 * @param 		  	name		(Optional) The name.
-		 * @param 		  	priority	(Optional) The priority.
+		 * @param [in,out]	shader  	The shader.
+		 * @param 		  	name		The name.
+		 * @param 		  	priority	The priority.
 		 */
 
-		Layer(Window* window, const char* name, int priority);
+
+		Layer(Window* window, Shader &shader, const char* name = "Default Name", int priority = 0) : l_Shader(shader), l_Window(window), l_name(name), l_Priority(priority) {}
+
+		/**
+		 * @fn	Layer::~Layer();
+		 *
+		 * @brief	Destructor
+		 */
+
+		~Layer();
 
 		/**
 		 * @fn	void Layer::update(int time);
@@ -56,14 +72,44 @@ namespace OP {
 		void Render();
 
 		/**
-		 * @fn	void Layer::AddRenderable();
+		 * @fn	void Layer::AddRenderable(Renderable &renderable);
 		 *
 		 * @brief	Adds a renderable
+		 *
+		 * @param [in,out]	renderable	The renderable.
 		 */
 
-		void AddRenderable();
+		void AddRenderable(Renderable &renderable);
 
+		/**
+		 * @fn	int Layer::getPriority();
+		 *
+		 * @brief	Gets the priority
+		 *
+		 * @returns	The priority.
+		 */
 
+		int getPriority() const;
+
+		/**
+		 * @fn	Shader Layer::getShader();
+		 *
+		 * @brief	Gets the shader
+		 *
+		 * @returns	The shader.
+		 */
+
+		const Shader &getShader();
+
+		/**
+		 * @fn	VertexBuffer Layer::getVertexBuffer();
+		 *
+		 * @brief	Gets vertex buffer
+		 *
+		 * @returns	The vertex buffer.
+		 */
+
+		const VertexBuffer &getVertexBuffer();
 	};
 
 }

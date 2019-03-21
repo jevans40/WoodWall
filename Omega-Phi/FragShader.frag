@@ -2,15 +2,15 @@
 
 in vec2 TexPos;
 in vec4 Color;
-in int TexMap;
+in flat int TexMap;
 
 out vec4 fragcolor;
 
 void main(){
   if(TexMap != -1){
-	
+	fragcolor = vec4(Color);
   }
   else{
-	fragcolor = vec4(Color.x, Color.y, Color.z, Color.w);
+	fragcolor = vec4(Color);
   }
 }

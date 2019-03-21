@@ -87,6 +87,6 @@ namespace OP {
 		 * @returns	An int.
 		 */
 
-		int dotProduct(const fvec2& other);
+		float dotProduct(const fvec2& other);
 	};
 }

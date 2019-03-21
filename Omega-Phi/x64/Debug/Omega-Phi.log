@@ -1,35 +1,5 @@
-﻿  Game.cpp
-c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(58): error C2065: 'Vertex': undeclared identifier
-c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(58): error C2146: syntax error: missing ';' before identifier 'vertices'
-c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(58): error C2065: 'vertices': undeclared identifier
-c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(58): error C2059: syntax error: ']'
-c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(58): error C2143: syntax error: missing ';' before '{'
-c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(59): error C2143: syntax error: missing ';' before '}'
-c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(59): error C2059: syntax error: ','
-c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(60): error C2143: syntax error: missing ';' before '{'
-c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(60): error C2143: syntax error: missing ';' before '}'
-c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(60): error C2059: syntax error: ','
-c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(61): error C2143: syntax error: missing ';' before '{'
-c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(61): error C2143: syntax error: missing ';' before '}'
-c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(61): error C2059: syntax error: ','
-c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(62): error C2143: syntax error: missing ';' before '{'
-c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(62): error C2143: syntax error: missing ';' before '}'
-c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(83): error C2065: 'Vertex': undeclared identifier
-c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(85): error C2065: 'Vertex': undeclared identifier
-c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(85): error C2132: syntax error: unexpected identifier
-  c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(85): note: offsetof has a builtin meaning; use /Zc:offsetof- to revert to old, non-conforming definition
-c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(87): error C2065: 'Vertex': undeclared identifier
-c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(87): error C2132: syntax error: unexpected identifier
-  c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(87): note: offsetof has a builtin meaning; use /Zc:offsetof- to revert to old, non-conforming definition
-c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(89): error C2065: 'Vertex': undeclared identifier
-c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(89): error C2132: syntax error: unexpected identifier
-  c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(89): note: offsetof has a builtin meaning; use /Zc:offsetof- to revert to old, non-conforming definition
-c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(92): error C2065: 'vertices': undeclared identifier
-  Renderer.cpp
-c:\users\jesse\documents\github\woodwall\omega-phi\renderable.h(4): warning C4086: expected pragma parameter to be '1', '2', '4', '8', or '16'
-c:\users\jesse\documents\github\woodwall\omega-phi\renderer.cpp(12): error C2065: 'vertexArray': undeclared identifier
-c:\users\jesse\documents\github\woodwall\omega-phi\renderer.cpp(13): error C2065: 'vertexArrayBuffer': undeclared identifier
-c:\users\jesse\documents\github\woodwall\omega-phi\renderer.cpp(22): error C2065: 'vertexArray': undeclared identifier
-c:\users\jesse\documents\github\woodwall\omega-phi\renderer.cpp(24): error C2065: 'vertexArrayBuffer': undeclared identifier
-c:\users\jesse\documents\github\woodwall\omega-phi\renderer.cpp(46): error C2065: 'vertices': undeclared identifier
-  Generating Code...
+﻿  main.cpp
+c:\users\jesse\documents\github\woodwall\omega-phi\renderable.h(7): warning C4086: expected pragma parameter to be '1', '2', '4', '8', or '16'
+c:\users\jesse\documents\github\woodwall\omega-phi\main.cpp(20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\jesse\documents\github\woodwall\omega-phi\main.cpp(21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Omega-Phi.vcxproj -> C:\Users\Jesse\Documents\GitHub\WoodWall\x64\Debug\Omega-Phi.exe

@@ -40,6 +40,6 @@ bool OP::fvec3::operator!=(const fvec3& other) {
 	return !(*this == other);
 }
 
-int OP::fvec3::dotProduct(const fvec3& other) {
+float OP::fvec3::dotProduct(const fvec3& other) {
 	return (this->x * other.x + this->y * other.y + this->z * other.z);
 }
