@@ -1,5 +1,6 @@
 #pragma once
 #include "Layer.h"
+#include "Window.h"
 #include <vector>
 
 namespace OP {
@@ -8,9 +9,9 @@ namespace OP {
 	private:
 		 std::vector<Layer *> l_Layers;
 		 int numOfSprites;
-
+		 Window * l_Window;
 	public:
-		 Renderer();
+		 Renderer(Window * window);
 
 		 void Init();
 

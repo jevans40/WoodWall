@@ -27,7 +27,7 @@ namespace OP {
 		Shader l_Shader;
 		VertexBuffer l_VertexBuffer; 
 		//EVENT HANDLER FOR SENDING A DELETE SIGNAL TO GAME
-		std::vector<Renderable> l_Sprites;
+		std::vector<Renderable*> l_Sprites;
 
 	public:
 
@@ -43,7 +43,9 @@ namespace OP {
 		 */
 
 
-		Layer(Window* window, Shader &shader, const char* name = "Default Name", int priority = 0) : l_Shader(shader), l_Window(window), l_name(name), l_Priority(priority) {}
+		Layer(Window* window, Shader &shader, const char* name = "Default Name", int priority = 0) : l_Shader(shader), l_Window(window), l_name(name), l_Priority(priority) {
+			std::cout << " I made it here before I crashed yay";
+		}
 
 		/**
 		 * @fn	Layer::~Layer();

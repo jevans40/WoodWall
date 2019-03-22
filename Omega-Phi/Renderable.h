@@ -174,7 +174,9 @@ namespace OP {
 		 * @returns	The vertex array.
 		 */
 
-		Vertex getVertexArray(int vertexIndex);
+		Vertex  getVertex(int vertexIndex);
+
+		Vertex * getVertexArray();
 
 		virtual void Update(int time);
 

@@ -12,8 +12,9 @@ OP::Renderable::Renderable()
 
 OP::Renderable::Renderable(fvec3 pos , fvec2 size, unsigned int Color, fvec2 TexPos, int TexMap)
 {
-	std::cout << sizeof(Vertex);
 	setSize(size);
+	setXPos(pos.x);
+	setYPos(pos.y);
 	setZPos(pos.z);
 	setColor(Color);
 	setTexx(TexPos.x);
@@ -24,28 +25,29 @@ OP::Renderable::Renderable(fvec3 pos , fvec2 size, unsigned int Color, fvec2 Tex
 void OP::Renderable::setXPos(float x)
 {
 	Pos.x = x;
-	VertData[0].pos.x = x;
-	VertData[1].pos.x = x + Size.x;
-	VertData[2].pos.x = x + Size.x;
-	VertData[3].pos.x = x;
+	VertData[0].pos.x = x ;
+	VertData[1].pos.x = x + Size.x ;
+	VertData[2].pos.x = x + Size.x ;
+	VertData[3].pos.x = x ;
 }
 
 void OP::Renderable::setYPos(float y)
 {
 	Pos.y = y;
 	VertData[0].pos.y = y;
-	VertData[1].pos.y = y;
-	VertData[2].pos.y = y + Size.y;
-	VertData[3].pos.y = y + Size.y;
+	VertData[0].pos.y = y ;
+	VertData[1].pos.y = y ;
+	VertData[2].pos.y = y + Size.y ;
+	VertData[3].pos.y = y + Size.y ;
 }
 
 void OP::Renderable::setZPos(float z)
 {
 	Pos.z = z;
-	VertData[0].pos.z = z;
-	VertData[1].pos.z = z;
-	VertData[2].pos.z = z;
-	VertData[3].pos.z = z;
+	VertData[0].pos.z = z ;
+	VertData[1].pos.z = z ;
+	VertData[2].pos.z = z ;
+	VertData[3].pos.z = z ;
 }
 
 void OP::Renderable::setColor(unsigned int Color)
@@ -80,9 +82,14 @@ float OP::Renderable::getZPos()
 	return Pos.z;
 }
 
-OP::Vertex OP::Renderable::getVertexArray(int vertex)
+OP::Vertex OP::Renderable::getVertex(int vertex)
 {
 	return (vertex < 4 && vertex > -1 ? VertData[vertex] : Vertex());
+}
+
+OP::Vertex * OP::Renderable::getVertexArray()
+{
+	return VertData;
 }
 
 void OP::Renderable::Update(int time)
@@ -92,8 +99,7 @@ void OP::Renderable::Update(int time)
 
 unsigned int OP::Renderable::GetColor(unsigned char r, unsigned char g, unsigned char b, unsigned char a = 0xFF)
 {
-	unsigned int Color = (int(a) >> 24) + (int(r) >> 16) + (int(b) >> 8) + (int(g) >> 0) ;
-	std::cout << Color << '\n';
+	unsigned int Color = (int(a) << 24) + (int(b) << 16) + (int(g) << 8) + (int(r) << 0) ;
 	return Color;
 }
 

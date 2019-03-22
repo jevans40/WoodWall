@@ -1,1 +1,10 @@
 *.opendb
+*.html
+*.dot
+*.md5
+*.js
+*.tex
+*.exe
+*.ilk
+*.pbd
+*.obj

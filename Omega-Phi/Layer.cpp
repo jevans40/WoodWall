@@ -19,16 +19,17 @@ namespace OP {
 	void Layer::Render() {
 		l_VertexBuffer.startBuffer(l_Sprites.size());
 		for (size_t i = 0; i < l_Sprites.size(); i++) {
-			l_VertexBuffer.submit(l_Sprites[i].getVertexArray(0));
-			l_VertexBuffer.submit(l_Sprites[i].getVertexArray(1));
-			l_VertexBuffer.submit(l_Sprites[i].getVertexArray(2));
-			l_VertexBuffer.submit(l_Sprites[i].getVertexArray(3));
+			Vertex* vert = l_Sprites[i]->getVertexArray();
+			l_VertexBuffer.submit(vert[0]);
+			l_VertexBuffer.submit(vert[1]);
+			l_VertexBuffer.submit(vert[2]);
+			l_VertexBuffer.submit(vert[3]);
 		}
 	}
 
 	void Layer::AddRenderable(Renderable &renderable) { //Renderable renderable
-		l_Sprites.push_back(renderable);
-		std::sort(l_Sprites.begin(), l_Sprites.end(), [](Renderable left, Renderable right) {return  left.getZPos() < right.getZPos(); });
+		l_Sprites.push_back(&renderable);
+		//std::sort(l_Sprites.begin(), l_Sprites.end(), [](Renderable * left, Renderable * right) {return  left->getZPos() < right->getZPos(); });
 	}
 
 	int Layer::getPriority() const

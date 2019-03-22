@@ -137,6 +137,7 @@
     <ClCompile Include="ivec4.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mat4f.cpp" />
     <ClCompile Include="Renderable.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Shader.cpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="ivec3.h" />
     <ClInclude Include="ivec4.h" />
     <ClInclude Include="Layer.h" />
+    <ClInclude Include="mat4f.h" />
     <ClInclude Include="OPMath.h" />
     <ClInclude Include="Renderable.h" />
     <ClInclude Include="Renderer.h" />

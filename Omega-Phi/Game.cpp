@@ -3,14 +3,14 @@
 #include <cassert>
 #include <FreeImage.h>
 
-OP::Game::Game(const char* gameName, int x , int y)
+OP::Game::Game(const char* gameName, int x , int y) : l_Window(new Window(gameName, x, y)), l_Renderer(l_Window)
 {
-	l_Window = new Window(gameName, x, y);
 }
 
 OP::Game::~Game()
 {
-	delete &l_Layers;
+	l_Layers.clear();
+	l_Layers.shrink_to_fit();
 	glfwTerminate();
 }
 
