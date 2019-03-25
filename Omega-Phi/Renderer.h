@@ -15,8 +15,6 @@ namespace OP {
 
 		 void Init();
 
-		 void AddTexture(/*Texture goes here*/);
-
 		 void RemoveTexture(int TextureIndex);
 
 		 void addLayer(Layer *toRender);

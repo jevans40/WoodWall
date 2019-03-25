@@ -11,9 +11,11 @@ OP::Renderer::Renderer(Window * window) : l_Window(window)
 void OP::Renderer::Init()
 {
 	glEnable(GL_DEPTH_TEST);
-	glDepthMask(GL_TRUE);
-	glDepthFunc(GL_LESS);
+	glDepthFunc(GL_LEQUAL);
+	//glEnable(GL_BLEND);
+	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
+
 
 void OP::Renderer::addLayer(Layer *toRender)
 {
@@ -30,7 +32,7 @@ void OP::Renderer::commitRender()
 	glfwGetWindowSize(l_Window->getWindow(), &width, &height);
 
 	OP::mat4f mat;
-	OP::mat4f::glOrtho(height,0,0,width,-1,1,mat);
+	OP::mat4f::glOrtho(height,0,0,width,1,0,mat);
 	glViewport(0, 0, width, height);
 
 

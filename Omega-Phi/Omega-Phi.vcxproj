@@ -91,6 +91,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link />
     <Link>
@@ -119,6 +120,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -127,29 +129,41 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EventCaller.cpp" />
     <ClCompile Include="FileLoader.cpp" />
     <ClCompile Include="fvec2.cpp" />
     <ClCompile Include="fvec3.cpp" />
     <ClCompile Include="fvec4.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="ImageAtlas.cpp" />
+    <ClCompile Include="ImageLoader.cpp" />
     <ClCompile Include="ivec2.cpp" />
     <ClCompile Include="ivec3.cpp" />
     <ClCompile Include="ivec4.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mat4f.cpp" />
+    <ClCompile Include="OPEvent.cpp" />
     <ClCompile Include="Renderable.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="SimpleSprite.cpp" />
     <ClCompile Include="VertexBuffer.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DataStructure.h" />
+    <ClInclude Include="EventCaller.h" />
+    <ClInclude Include="OPImage.h" />
+    <ClInclude Include="ImageAtlas.h" />
+    <ClInclude Include="OPEvent.h" />
+    <ClInclude Include="EventListener.h" />
     <ClInclude Include="FileLoader.h" />
     <ClInclude Include="fvec2.h" />
     <ClInclude Include="fvec3.h" />
     <ClInclude Include="fvec4.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="ImageLoader.h" />
     <ClInclude Include="ivec2.h" />
     <ClInclude Include="ivec3.h" />
     <ClInclude Include="ivec4.h" />
@@ -159,6 +173,7 @@
     <ClInclude Include="Renderable.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="SimpleSprite.h" />
     <ClInclude Include="VertexBuffer.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>

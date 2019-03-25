@@ -46,6 +46,12 @@
     <Filter Include="Source Files\Graphics\Buffers">
       <UniqueIdentifier>{431bdf8a-01fb-4ab1-91d8-56ce9cb894d0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Utils\Image">
+      <UniqueIdentifier>{eddfca82-a01e-41d4-bb7a-e9cb357a5e10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\Image">
+      <UniqueIdentifier>{5ab22819-4a49-4719-b85f-b75dba6a22d5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -90,11 +96,26 @@
     <ClCompile Include="fvec4.cpp">
       <Filter>Source Files\Maths</Filter>
     </ClCompile>
-    <ClCompile Include="VertexBuffer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="mat4f.cpp">
       <Filter>Source Files\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageLoader.cpp">
+      <Filter>Source Files\Utils\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexBuffer.cpp">
+      <Filter>Source Files\Graphics\Buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleSprite.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="EventCaller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OPEvent.cpp">
+      <Filter>Source Files\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageAtlas.cpp">
+      <Filter>Source Files\Utils\Image</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +166,30 @@
     </ClInclude>
     <ClInclude Include="mat4f.h">
       <Filter>Header Files\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageLoader.h">
+      <Filter>Header Files\Utils\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleSprite.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="EventListener.h">
+      <Filter>Header Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="OPEvent.h">
+      <Filter>Header Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="EventCaller.h">
+      <Filter>Header Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageAtlas.h">
+      <Filter>Header Files\Utils\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="DataStructure.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="OPImage.h">
+      <Filter>Header Files\Utils\Image</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

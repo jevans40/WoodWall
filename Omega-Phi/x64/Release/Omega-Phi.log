@@ -1,13 +1,9 @@
-﻿  FileLoader.cpp
-  Game.cpp
-  Layer.cpp
-  main.cpp
-  Shader.cpp
-c:\users\jesse\documents\github\woodwall\omega-phi\fileloader.h(12): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
-  Window.cpp
+﻿  ImageLoader.cpp
 LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  All 158 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  1 of 913 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    2 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 Shader.obj : warning LNK4049: locally defined symbol __glewLinkProgram imported
 Shader.obj : warning LNK4049: locally defined symbol __glewDeleteShader imported
@@ -15,11 +11,21 @@ Shader.obj : warning LNK4049: locally defined symbol __glewGetProgramInfoLog imp
 Shader.obj : warning LNK4049: locally defined symbol __glewDetachShader imported
 Shader.obj : warning LNK4049: locally defined symbol __glewShaderSource imported
 Shader.obj : warning LNK4049: locally defined symbol __glewAttachShader imported
+Shader.obj : warning LNK4049: locally defined symbol __glewBindFragDataLocation imported
 Shader.obj : warning LNK4049: locally defined symbol __glewGetProgramiv imported
 Shader.obj : warning LNK4049: locally defined symbol __glewGetShaderInfoLog imported
 Shader.obj : warning LNK4049: locally defined symbol __glewCreateProgram imported
 Shader.obj : warning LNK4049: locally defined symbol __glewCreateShader imported
 Shader.obj : warning LNK4049: locally defined symbol __glewCompileShader imported
 Shader.obj : warning LNK4049: locally defined symbol __glewGetShaderiv imported
+VertexBuffer.obj : warning LNK4049: locally defined symbol __glewDeleteBuffers imported
+VertexBuffer.obj : warning LNK4049: locally defined symbol __glewGenBuffers imported
+VertexBuffer.obj : warning LNK4049: locally defined symbol __glewGenVertexArrays imported
+VertexBuffer.obj : warning LNK4049: locally defined symbol __glewBufferData imported
+VertexBuffer.obj : warning LNK4049: locally defined symbol __glewDeleteVertexArrays imported
+VertexBuffer.obj : warning LNK4049: locally defined symbol __glewBindBuffer imported
+VertexBuffer.obj : warning LNK4049: locally defined symbol __glewVertexAttribPointer imported
+VertexBuffer.obj : warning LNK4049: locally defined symbol __glewBindVertexArray imported
+VertexBuffer.obj : warning LNK4049: locally defined symbol __glewEnableVertexAttribArray imported
 glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'C:\Users\Jesse\Documents\GitHub\WoodWall\x64\Release\vc120.pdb'; linking object as if no debug info
   Omega-Phi.vcxproj -> C:\Users\Jesse\Documents\GitHub\WoodWall\x64\Release\Omega-Phi.exe

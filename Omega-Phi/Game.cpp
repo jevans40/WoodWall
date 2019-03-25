@@ -1,10 +1,14 @@
 #include "Game.h"
+#include "ImageLoader.h"
+#include "SimpleSprite.h"
 #include <cstdint>
 #include <cassert>
 #include <FreeImage.h>
 
-OP::Game::Game(const char* gameName, int x , int y) : l_Window(new Window(gameName, x, y)), l_Renderer(l_Window)
+OP::Game::Game(const char* gameName, int x, int y) : l_Window(new Window(gameName, x, y)), l_Renderer(l_Window)
 {
+	l_SpriteAtlas = new ImageAtlas("./../res",0);
+
 }
 
 OP::Game::~Game()
@@ -36,6 +40,8 @@ void OP::Game::AddLayer(Layer &newLayer)
 {
 	l_Renderer.addLayer(&newLayer);
 	l_Layers.push_back(&newLayer);
+	//Add multiple layers later
+	newLayer.AddTexture(l_SpriteAtlas->getImage(),l_SpriteAtlas->getImageMap());
 }
 
 
@@ -61,4 +67,9 @@ void OP::Game::Update(int time)
 	glfwPollEvents();
 
 
+}
+
+
+void OP::Game::HandleEvent(OP::OPEvent * event) {
+	
 }

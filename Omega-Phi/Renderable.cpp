@@ -1,5 +1,11 @@
 #include "Renderable.h"
 #include <iostream>
+void OP::Renderable::setTexSize(fvec2 size)
+{
+	TexSize = size;
+	setTexx(TexPos.x);
+	setTexy(TexPos.y);
+}
 OP::Renderable::Renderable()
 {
 	setSize();
@@ -10,16 +16,16 @@ OP::Renderable::Renderable()
 	setTexMap(-1);
 }
 
-OP::Renderable::Renderable(fvec3 pos , fvec2 size, unsigned int Color, fvec2 TexPos, int TexMap)
+OP::Renderable::Renderable(fvec3 pos , fvec2 size, unsigned int Color)
 {
 	setSize(size);
 	setXPos(pos.x);
 	setYPos(pos.y);
 	setZPos(pos.z);
 	setColor(Color);
-	setTexx(TexPos.x);
-	setTexy(TexPos.y);
-	setTexMap(TexMap);
+	setTexx(0);
+	setTexy(0);
+	setTexMap(-1);
 }
 
 void OP::Renderable::setXPos(float x)
@@ -107,8 +113,8 @@ void OP::Renderable::setTexx(float Texx)
 {
 	TexPos.x = Texx;
 	VertData[0].texPos.x = Texx;
-	VertData[1].texPos.x = Texx;
-	VertData[2].texPos.x = Texx;
+	VertData[1].texPos.x = Texx + TexSize.x;
+	VertData[2].texPos.x = Texx + TexSize.x;
 	VertData[3].texPos.x = Texx;
 }
 
@@ -117,8 +123,8 @@ void OP::Renderable::setTexy(float Texy)
 	TexPos.y = Texy;
 	VertData[0].texPos.y = Texy;
 	VertData[1].texPos.y = Texy;
-	VertData[2].texPos.y = Texy;
-	VertData[3].texPos.y = Texy;
+	VertData[2].texPos.y = Texy + TexSize.y;
+	VertData[3].texPos.y = Texy + TexSize.y;
 }
 
 void OP::Renderable::setTexMap(int TexMap)

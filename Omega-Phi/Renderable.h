@@ -1,22 +1,9 @@
 #pragma once
 #include "OPMath.h"
+#include "DataStructure.h"
 namespace OP {
 
 
-
-#pragma pack(push, 0)
-
-	struct Vertex {
-		fvec3 pos = fvec3(0,0,0);
-		fvec2 texPos = fvec2(0,0);
-		unsigned int color = 0;
-		int texMap = 0;
-
-		Vertex() {};
-
-	};
-
-#pragma pack(pop)
 
 	class Renderable {
 	private:
@@ -25,6 +12,7 @@ namespace OP {
 		fvec2 Size;
 		fvec3 Pos;
 		fvec2 TexPos;
+		fvec2 TexSize;
 		unsigned int Color;
 		int TexMap;
 
@@ -61,10 +49,17 @@ namespace OP {
 		void setTexMap(int TexMap);
 
 		/**
-		 * @fn	Renderable::Renderable();
+		 * @fn	void Renderable::setTexSize(fvec2 size = fvec2(0, 0));
 		 *
-		 * @brief	Default constructor
+		 * @brief	Sets texture size
+		 *
+		 * @param	size	(Optional) The size.
 		 */
+
+		void setTexSize(fvec2 size = fvec2(0, 0));
+
+
+
 	public:
 
 		Renderable();
@@ -83,7 +78,7 @@ namespace OP {
 		 * @param	TexMap	(Optional) The texture map.
 		 */
 
-		Renderable(fvec3 pos = fvec3(0, 0, 0), fvec2 size = fvec2(1,1), unsigned int Color = 0xffffffff, fvec2 TexPos = fvec2(0,0), int TexMap = -1);
+		Renderable(fvec3 pos = fvec3(0, 0, 0), fvec2 size = fvec2(1,1), unsigned int Color = 0xffffffff);
 
 		/**
 		 * @fn	void Renderable::setXPos(float x);
@@ -163,6 +158,7 @@ namespace OP {
 		 */
 
 		float getZPos();
+					
 
 		/**
 		 * @fn	Vertex Renderable::getVertexArray(int vertexIndex);
@@ -176,9 +172,38 @@ namespace OP {
 
 		Vertex  getVertex(int vertexIndex);
 
+		/**
+		 * @fn	Vertex * Renderable::getVertexArray();
+		 *
+		 * @brief	Gets vertex array
+		 *
+		 * @returns	Null if it fails, else the vertex array.
+		 */
+
 		Vertex * getVertexArray();
 
+		/**
+		 * @fn	virtual void Renderable::Update(int time);
+		 *
+		 * @brief	Updates the given time
+		 *
+		 * @param	time	The time.
+		 */
+
 		virtual void Update(int time);
+
+		/**
+		 * @fn	static unsigned int Renderable::GetColor(unsigned char r, unsigned char g, unsigned char b, unsigned char a);
+		 *
+		 * @brief	Gets a color
+		 *
+		 * @param	r	Red Color Value
+		 * @param	g	Green Color Value
+		 * @param	b	Blue Color Value
+		 * @param	a	Alpha Channel value
+		 *
+		 * @returns	The color.
+		 */
 
 		static unsigned int GetColor(unsigned char r, unsigned char g, unsigned char b, unsigned char a);
 	};

@@ -2,29 +2,15 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <vector>
+#include <filesystem>
 
 namespace OP {
 
-	std::string loadFile(const char* filePath) {
-		std::ifstream is(filePath);
+	bool hasExtension(std::string const &fileName, std::string const &extension);
 
-		if (is.is_open()) {
-			is.seekg(0, is.end);
-			int length = is.tellg();
-			is.seekg(0, is.beg);
+	std::string loadFile(const char* filePath);
 
-			std::stringstream buffer;
-			buffer << is.rdbuf();
-
-			if (!is) {
-				std::cout << "error: file could not be read" << is.rdstate() << std::endl;
-			}
-			is.close();
-			return buffer.str();
-		}
-		else {
-			return '\0';
-		}
-	}
-
+	std::vector<std::string> getFiles(const char * dirPath, const char* fileExtension = "");
+	
 }

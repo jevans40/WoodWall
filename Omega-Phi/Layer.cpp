@@ -37,6 +37,14 @@ namespace OP {
 		return l_Priority;
 	}
 
+	void Layer::AddTexture(GLuint texID, GLuint texUnit)
+	{
+		glUseProgram(l_Shader.getShaderProgram());
+		glActiveTexture(GL_TEXTURE0 + texUnit);
+		glBindTexture(GL_TEXTURE_2D, texID);
+		glUniform1i(texUnit, 0);
+	}
+
 	const Shader &Layer::getShader()
 	{
 		return l_Shader;
@@ -45,6 +53,13 @@ namespace OP {
 	const VertexBuffer &Layer::getVertexBuffer()
 	{
 		return l_VertexBuffer;
+	}
+
+	void Layer::HandleEvent(OPEvent * Event)
+	{
+		if (Event->getName() == "getSprite") {
+			SimpleSprite * sprite = (SimpleSprite*)Event->getSource();
+		}
 	}
 
 }

@@ -2,13 +2,15 @@
 #include "Layer.h"
 #include "Window.h"
 #include "Renderer.h"
+#include "EventListener.h"
 namespace OP{
 
-	class Game {
+	class Game : public EventListner {
 	protected:
 		std::vector<Layer*> l_Layers;
 		Window* l_Window;
 		Renderer l_Renderer;
+		ImageAtlas * l_SpriteAtlas;//(ImageAtlas*) malloc(GL_MAX_TEXTURE_UNITS * sizeof(ImageAtlas));
 
 	public:
 
@@ -27,6 +29,7 @@ namespace OP{
 		/**
 		 * @fn	Game::~Game();
 		 *
+		 * 
 		 * @brief	Destructor
 		 */
 
@@ -89,7 +92,7 @@ namespace OP{
 		void Update(int time);
 			
 
-
+		virtual void OP::EventListner::HandleEvent(OP::OPEvent * event);
 	
 	};
 

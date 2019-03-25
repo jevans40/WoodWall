@@ -1,18 +1,3 @@
-﻿  Game.cpp
-c:\users\jesse\documents\github\woodwall\omega-phi\renderable.h(7): warning C4086: expected pragma parameter to be '1', '2', '4', '8', or '16'
-  Layer.cpp
-c:\users\jesse\documents\github\woodwall\omega-phi\renderable.h(7): warning C4086: expected pragma parameter to be '1', '2', '4', '8', or '16'
-c:\users\jesse\documents\github\woodwall\omega-phi\layer.cpp(20): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  Renderable.cpp
-c:\users\jesse\documents\github\woodwall\omega-phi\renderable.h(7): warning C4086: expected pragma parameter to be '1', '2', '4', '8', or '16'
-  Renderer.cpp
-c:\users\jesse\documents\github\woodwall\omega-phi\renderable.h(7): warning C4086: expected pragma parameter to be '1', '2', '4', '8', or '16'
-c:\users\jesse\documents\github\woodwall\omega-phi\renderer.cpp(33): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-  VertexBuffer.cpp
-c:\users\jesse\documents\github\woodwall\omega-phi\renderable.h(7): warning C4086: expected pragma parameter to be '1', '2', '4', '8', or '16'
-c:\users\jesse\documents\github\woodwall\omega-phi\vertexbuffer.cpp(76): warning C4018: '<': signed/unsigned mismatch
-  main.cpp
-c:\users\jesse\documents\github\woodwall\omega-phi\renderable.h(7): warning C4086: expected pragma parameter to be '1', '2', '4', '8', or '16'
-c:\users\jesse\documents\github\woodwall\omega-phi\main.cpp(22): warning C4244: 'argument': conversion from 'float' to 'unsigned char', possible loss of data
-  Generating Code...
+﻿  ImageLoader.cpp
+c:\users\jesse\documents\github\woodwall\omega-phi\imageloader.cpp(175): warning C4101: 'rgbquad': unreferenced local variable
   Omega-Phi.vcxproj -> C:\Users\Jesse\Documents\GitHub\WoodWall\x64\Debug\Omega-Phi.exe

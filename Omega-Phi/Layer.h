@@ -4,7 +4,8 @@
 #include <vector>
 #include "Shader.h"
 #include "VertexBuffer.h"
-
+#include "EventListener.h"
+#include "SimpleSprite.h"
 /**
  * @namespace	OP
  *
@@ -19,7 +20,7 @@ namespace OP {
 	 * @brief	A layer.
 	 */
 
-	class Layer {
+	class Layer : EventListner {
 	private:
 		const char* l_name;
 		Window* l_Window;
@@ -93,6 +94,8 @@ namespace OP {
 
 		int getPriority() const;
 
+		void AddTexture(GLuint texID, GLuint texUnit);
+
 		/**
 		 * @fn	Shader Layer::getShader();
 		 *
@@ -112,6 +115,9 @@ namespace OP {
 		 */
 
 		const VertexBuffer &getVertexBuffer();
+
+		// Inherited via EventListner
+		virtual void HandleEvent(OPEvent * Event) override;
 	};
 
 }

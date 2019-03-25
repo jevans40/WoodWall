@@ -21,7 +21,7 @@ OP::VertexBuffer::VertexBuffer()
 
 	glVertexAttribPointer(2, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(Vertex), (const GLvoid*)(offsetof(Vertex, Vertex::color)));
 
-	glVertexAttribPointer(3, 1, GL_UNSIGNED_INT, GL_FALSE, sizeof(Vertex), (const GLvoid*)(offsetof(Vertex, Vertex::texMap)));
+	glVertexAttribPointer(3, 1, GL_INT, GL_FALSE, sizeof(Vertex), (const GLvoid*)(offsetof(Vertex, Vertex::texMap)));
 
 	Unbind();
 }
