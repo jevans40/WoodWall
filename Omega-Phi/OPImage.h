@@ -18,7 +18,7 @@ namespace OP {
 			Height = 0;
 		}
 		~OPImage() {
-			delete[] Texels;
+			//delete[] Texels;
 		}
 
 	};

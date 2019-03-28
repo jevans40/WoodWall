@@ -21,7 +21,9 @@ OP::OPImage &OP::LoadImage(const char * FileName)
 		int height, width;
 
 		RGBQUAD rgbquad;
+		RGBQUAD previous;
 
+		FreeImage_GetPixelColor(bitmap, 0, 0, &previous);
 
 		FREE_IMAGE_TYPE type;
 		BITMAPINFOHEADER *header;
@@ -33,16 +35,29 @@ OP::OPImage &OP::LoadImage(const char * FileName)
 		width = FreeImage_GetWidth(bitmap);
 
 		header = FreeImage_GetInfoHeader(bitmap);
+
+		bool transparency = true;
+
+		for (x = 0; x < width; x++)
+			for (y = 0; y < height; y++)
+			{
+				FreeImage_GetPixelColor(bitmap, x, y, &rgbquad);
+				if (rgbquad.rgbReserved != previous.rgbReserved) {
+					transparency = false;
+					break;
+				}
+			}
 		int scanLineWidh = ((3 * width) % 4 == 0) ? 3 * width : ((3 * width) / 4) * 4 + 4;
 		RGBQUAD * texels = new RGBQUAD[height*width];
 		for (x = 0; x < width; x++)
 			for (y = 0; y < height; y++)
 			{
 				FreeImage_GetPixelColor(bitmap, x, y, &rgbquad);
-				texels[y*width + x] = rgbquad;
-				if (rgbquad.rgbReserved != 0  && (int)((unsigned char*)&rgbquad)[3] != 255){
-					std::cout << (int)((unsigned char*)&rgbquad)[3] << std::endl;
+
+				if (rgbquad.rgbReserved > 0 || transparency) {
+					rgbquad.rgbReserved = 255;
 				}
+				texels[y*width + x] = rgbquad;
 			}
 		FreeImage_Unload(bitmap);
 		OPImage * image = new OP::OPImage(texels,width,height);
@@ -81,6 +96,9 @@ OP::OPImage & OP::NewImage(ivec2 size)
 			for (y = 0; y < height; y++)
 			{
 				FreeImage_GetPixelColor(bitmap, x, y, &rgbquad);
+				if (rgbquad.rgbReserved > 0) {
+					rgbquad.rgbReserved = 255;
+				}
 				texels[y*width + x] = rgbquad;
 			}
 		FreeImage_Unload(bitmap);
@@ -99,21 +117,23 @@ GLuint OP::TurnBitMapToTextureNearest(OPImage &dib1)
 
 	RGBQUAD rgbquad;
 
-	int scanLineWidh = ((3 * dib1.Width) % 4 == 0) ? 4 * dib1.Width : ((4 * dib1.Width) / 4) * 4 + 4;
+	int scanLineWidh = ((3 * dib1.Width) % 4 == 0) ? 4 * dib1.Width : ((4 * dib1.Width) / 4) * 4;
 	GLubyte * texels = new GLubyte[dib1.Height*dib1.Width * 4];
 	for (x = 0; x < dib1.Width; x++)
 		for (y = 0; y < dib1.Height; y++)
 		{
 			rgbquad = dib1.Texels[y * dib1.Width + x];
 
+			if (rgbquad.rgbReserved > 0) {
+				rgbquad.rgbReserved = 255;
+			}
+
 			texels[(y*scanLineWidh + 4 * x)] = ((GLubyte*)&rgbquad)[2];
 			texels[(y*scanLineWidh + 4 * x) + 1] = ((GLubyte*)&rgbquad)[1];
 			texels[(y*scanLineWidh + 4 * x) + 2] = ((GLubyte*)&rgbquad)[0];
 			texels[(y*scanLineWidh + 4 * x) + 3] = ((GLubyte*)&rgbquad)[3];
 
-			if (rgbquad.rgbReserved != 0 && (int)((unsigned char*)&rgbquad)[3] != 255) {
-				std::cout << (int)((unsigned char*)&rgbquad)[3] << std::endl;
-			}
+
 		}
 
 	glGenTextures(1, &tex_id);
@@ -145,6 +165,10 @@ GLuint OP::TurnBitMapToTextureLinear(OPImage &dib1)
 		for (y = 0; y < dib1.Height; y++)
 		{
 			rgbquad = dib1.Texels[y * dib1.Width + x];
+
+			if (rgbquad.rgbReserved > 0) {
+				rgbquad.rgbReserved = 255;
+			}
 
 			texels[(y*scanLineWidh + 4 * x)] = ((GLubyte*)&rgbquad)[2];
 			texels[(y*scanLineWidh + 4 * x) + 1] = ((GLubyte*)&rgbquad)[1];

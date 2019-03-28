@@ -1,22 +1,61 @@
 #include "SimpleSprite.h"
-#include <stdlib.h>
-OP::SimpleSprite::SimpleSprite(EventListner * TextureHandler, fvec3 pos, fvec2 size, unsigned int Color) : Renderable(pos,size,Color)
+
+const std::vector < OP::SpriteLoc* > * OP::SimpleSprite::l_SpriteImages;
+
+OP::SimpleSprite::SimpleSprite(EventListner * Game, fvec3 pos, fvec2 size, unsigned int Color) : Renderable(pos, size, Color)
 {
-	addListener(TextureHandler);
+	addListener(Game);
 	setTexx(0);
 	setTexy(0);
-	setTexSize({ 1,1});
+	setTexSize({ 1,1 });
 	setTexMap(0);
-
-
-	
-
+	setSprite(0);
 }
 
-void OP::SimpleSprite::Initalize(OP::ImageAtlas)
+void OP::SimpleSprite::setSprite(int spriteIndex)
 {
-
+	currentSprite = spriteIndex;
+	if (spriteIndex >= 0 && spriteIndex < l_SpriteImages->size()) {
+		if ((*l_SpriteImages)[spriteIndex] != nullptr) {
+			this->setTexx(-(*l_SpriteImages)[spriteIndex]->Pos.x);
+			this->setTexy(-(*l_SpriteImages)[spriteIndex]->Pos.y);
+			this->setTexSize({((*l_SpriteImages)[spriteIndex]->Size.x * -1),((*l_SpriteImages)[spriteIndex]->Size.y * -1) });
+			this->setTexMap((*l_SpriteImages)[spriteIndex]->TexMap);
+		}
+		else {
+			this->setTexx(0);
+			this->setTexy(0);
+			this->setTexSize({ 0,0 });
+			this->setTexMap(-1);
+		}
+		
+	}
 }
+
+void OP::SimpleSprite::setSprite(std::string SpriteName)
+{
+	for (int i = 0; i < l_SpriteImages->size(); i++) {
+		if ((*l_SpriteImages)[i]->Name == SpriteName) {
+			setSprite(i);
+			break;
+		}
+	}
+}
+
+void OP::SimpleSprite::addSprite(const std::vector <SpriteLoc *>  * sprites)
+{
+	l_SpriteImages = sprites;
+}
+
+
+
+
+void * OP::SimpleSprite::passEvent(const char * eventName, void * source, const char * eventMessage)
+{
+	return callListner(eventName,source,eventMessage );
+}
+
+
 
 
 

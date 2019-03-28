@@ -1,3 +1,4 @@
-﻿  ImageLoader.cpp
-c:\users\jesse\documents\github\woodwall\omega-phi\imageloader.cpp(175): warning C4101: 'rgbquad': unreferenced local variable
-  Omega-Phi.vcxproj -> C:\Users\Jesse\Documents\GitHub\WoodWall\x64\Debug\Omega-Phi.exe
+﻿  FontLoader.cpp
+c:\users\jesse\documents\github\woodwall\omega-phi\fontloader.cpp(23): warning C4018: '<': signed/unsigned mismatch
+c:\users\jesse\documents\github\woodwall\omega-phi\fontloader.cpp(24): warning C4018: '<': signed/unsigned mismatch
+  Omega-Phi.vcxproj -> C:\Users\Jesse\Documents\GitHub\WoodWall\x64\Debug\Omega-Phi.lib

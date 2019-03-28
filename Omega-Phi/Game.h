@@ -10,7 +10,7 @@ namespace OP{
 		std::vector<Layer*> l_Layers;
 		Window* l_Window;
 		Renderer l_Renderer;
-		ImageAtlas * l_SpriteAtlas;//(ImageAtlas*) malloc(GL_MAX_TEXTURE_UNITS * sizeof(ImageAtlas));
+		std::vector<ImageAtlas*> l_SpriteAtlas;//(ImageAtlas*) malloc(GL_MAX_TEXTURE_UNITS * sizeof(ImageAtlas));
 
 	public:
 
@@ -24,7 +24,7 @@ namespace OP{
 		 * @param	y			(Optional) The y coordinate.
 		 */
 
-		Game(const char* gameName = "GameName", int x = 0, int y = 0);
+		Game( const char* gameName = "GameName", int x = 0, int y = 0, const char* gamedir = "./../");
 
 		/**
 		 * @fn	Game::~Game();
@@ -63,6 +63,10 @@ namespace OP{
 
 		void AddLayer(Layer &newLayer);
 
+		void UpdateAtlas();
+
+		void getSprite(const char* spriteName);
+
 		/**
 		 * @fn	void Game::RemoveLayer(char* layerName);
 		 *
@@ -92,7 +96,7 @@ namespace OP{
 		void Update(int time);
 			
 
-		virtual void OP::EventListner::HandleEvent(OP::OPEvent * event);
+		virtual void* OP::EventListner::HandleEvent(OP::OPEvent * event);
 	
 	};
 

@@ -3,6 +3,6 @@
 namespace OP {
 	class EventListner {
 	public:
-		virtual void HandleEvent(OPEvent * Event) = 0;
+		virtual void* HandleEvent(OPEvent * Event) = 0;
 	};
 }

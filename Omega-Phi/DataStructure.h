@@ -33,6 +33,25 @@ namespace OP {
 			}
 		}
 
+		MapGrid(int newsize, MapGrid * grid1) {
+			size = newsize;
+
+			grids[0] = grid1;
+			boolgrid[0] = true;
+
+			if (newsize > 16) {
+				grids[1] = new MapGrid(size / 2);
+				grids[2] = new MapGrid(size / 2);
+				grids[3] = new MapGrid(size / 2);
+
+			}
+			else {
+				boolgrid[1] = false;
+				boolgrid[2] = false;
+				boolgrid[3] = false;
+			}
+		}
+
 		~MapGrid() {
 			if (size > 16) {
 
@@ -66,6 +85,9 @@ namespace OP {
 		}
 
 		bool willFit(int objSize) {
+			if (size == 16 && objSize <= size) {
+				return !BoolSum();
+			}
 			if (objSize <= size && isEmpty()) {
 				return true;
 			}
@@ -94,17 +116,24 @@ namespace OP {
 			}
 			Allocate();
 
+			if (previous != nullptr) {
+
 			if (previous->grids[0] == this) {
 				previous->boolgrid[0] = true;
+				previous->recalculate();
 			}
 			if (previous->grids[1] == this) {
 				previous->boolgrid[1] = true;
+				previous->recalculate();
 			}
 			if (previous->grids[2] == this) {
 				previous->boolgrid[2] = true;
+				previous->recalculate();
 			}
 			if (previous->grids[3] == this) {
 				previous->boolgrid[3] = true;
+				previous->recalculate();
+			}
 			}
 
 			return { offsetx * size,offsety * size };
@@ -130,6 +159,12 @@ namespace OP {
 			grids[1]->Allocate();
 			grids[2]->Allocate();
 			grids[3]->Allocate();
+			}
+		}
+
+		void recalculate() {
+			if (BoolSum() == true) {
+
 			}
 		}
 

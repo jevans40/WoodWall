@@ -8,7 +8,7 @@ namespace OP {
 	public:
 		void addListener(OP::EventListner * Listener);
 
-		void callListner(OPEvent * Event);
-		void callListner(const char* eventName, void * Source);
+		void * callListner(OPEvent * Event);
+		void * callListner(const char* eventName, void * Source, const char* message = "");
 	};
 }

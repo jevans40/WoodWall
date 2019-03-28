@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?><DEFECTS><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\jesse\documents\github\woodwall\omega-phi</FILEPATH>
+      <FILENAME>datastructure.h</FILENAME>
+      <LINE>19</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'OP::MapGrid::grids' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>OP::MapGrid::{ctor}</FUNCTION>
+    <DECORATED>??0MapGrid@OP@@QEAA@H@Z</DECORATED>
+    <FUNCLINE>19</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\jesse\documents\github\woodwall\omega-phi</FILEPATH>
+      <FILENAME>house.h</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'House::currentSprite' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>House::{ctor}</FUNCTION>
+    <DECORATED>??0House@@QEAA@PEAVEventListner@OP@@Vfvec3@2@Vfvec2@2@I@Z</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT></DEFECTS>

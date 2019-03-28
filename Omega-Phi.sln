@@ -5,6 +5,11 @@ VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Omega-Phi", "Omega-Phi\Omega-Phi.vcxproj", "{435D5B7B-B611-4229-AA73-A9EF9DFCCB16}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WoodWall", "WoodWall\WoodWall.vcxproj", "{B383AE63-3AEA-4031-B277-D283BDE293F0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{435D5B7B-B611-4229-AA73-A9EF9DFCCB16} = {435D5B7B-B611-4229-AA73-A9EF9DFCCB16}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +26,14 @@ Global
 		{435D5B7B-B611-4229-AA73-A9EF9DFCCB16}.Release|x64.Build.0 = Release|x64
 		{435D5B7B-B611-4229-AA73-A9EF9DFCCB16}.Release|x86.ActiveCfg = Release|Win32
 		{435D5B7B-B611-4229-AA73-A9EF9DFCCB16}.Release|x86.Build.0 = Release|Win32
+		{B383AE63-3AEA-4031-B277-D283BDE293F0}.Debug|x64.ActiveCfg = Debug|x64
+		{B383AE63-3AEA-4031-B277-D283BDE293F0}.Debug|x64.Build.0 = Debug|x64
+		{B383AE63-3AEA-4031-B277-D283BDE293F0}.Debug|x86.ActiveCfg = Debug|Win32
+		{B383AE63-3AEA-4031-B277-D283BDE293F0}.Debug|x86.Build.0 = Debug|Win32
+		{B383AE63-3AEA-4031-B277-D283BDE293F0}.Release|x64.ActiveCfg = Release|x64
+		{B383AE63-3AEA-4031-B277-D283BDE293F0}.Release|x64.Build.0 = Release|x64
+		{B383AE63-3AEA-4031-B277-D283BDE293F0}.Release|x86.ActiveCfg = Release|Win32
+		{B383AE63-3AEA-4031-B277-D283BDE293F0}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

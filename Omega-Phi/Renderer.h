@@ -15,11 +15,7 @@ namespace OP {
 
 		 void Init();
 
-		 void RemoveTexture(int TextureIndex);
-
 		 void addLayer(Layer *toRender);
-
-		 void RenderFont();
 
 		 void commitRender();
 

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\jesse\documents\github\woodwall\omega-phi</FILEPATH>
+      <FILENAME>fileloader.cpp</FILENAME>
+      <LINE>31</LINE>
+      <COLUMN>3</COLUMN>
+    </SFA>
+    <DEFECTCODE>6387</DEFECTCODE>
+    <DESCRIPTION>'_Param_(1)' could be '0':  this does not adhere to the specification for the function 'std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt;::{ctor}'. </DESCRIPTION>
+    <FUNCTION>OP::loadFile</FUNCTION>
+    <DECORATED>?loadFile@OP@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEBD@Z</DECORATED>
+    <FUNCLINE>13</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\jesse\documents\github\woodwall\omega-phi</FILEPATH>
+        <FILENAME>fileloader.cpp</FILENAME>
+        <LINE>14</LINE>
+        <COLUMN>16</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\jesse\documents\github\woodwall\omega-phi</FILEPATH>
+        <FILENAME>fileloader.cpp</FILENAME>
+        <LINE>16</LINE>
+        <COLUMN>16</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\jesse\documents\github\woodwall\omega-phi</FILEPATH>
+        <FILENAME>fileloader.cpp</FILENAME>
+        <LINE>31</LINE>
+        <COLUMN>3</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+</DEFECTS>

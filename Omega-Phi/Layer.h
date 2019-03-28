@@ -20,7 +20,7 @@ namespace OP {
 	 * @brief	A layer.
 	 */
 
-	class Layer : EventListner {
+	class Layer {
 	private:
 		const char* l_name;
 		Window* l_Window;
@@ -116,8 +116,6 @@ namespace OP {
 
 		const VertexBuffer &getVertexBuffer();
 
-		// Inherited via EventListner
-		virtual void HandleEvent(OPEvent * Event) override;
 	};
 
 }

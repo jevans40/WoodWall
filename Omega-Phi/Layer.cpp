@@ -25,6 +25,7 @@ namespace OP {
 			l_VertexBuffer.submit(vert[2]);
 			l_VertexBuffer.submit(vert[3]);
 		}
+		//l_VertexBuffer.flush();
 	}
 
 	void Layer::AddRenderable(Renderable &renderable) { //Renderable renderable
@@ -53,13 +54,6 @@ namespace OP {
 	const VertexBuffer &Layer::getVertexBuffer()
 	{
 		return l_VertexBuffer;
-	}
-
-	void Layer::HandleEvent(OPEvent * Event)
-	{
-		if (Event->getName() == "getSprite") {
-			SimpleSprite * sprite = (SimpleSprite*)Event->getSource();
-		}
 	}
 
 }

@@ -1,6 +1,7 @@
 #pragma once
 #include "ivec2.h"
 #include "FileLoader.h"
+#include "EventCaller.h"
 #include "ImageLoader.h"
 #include "DataStructure.h"
 #include <string>
@@ -8,20 +9,38 @@
 namespace OP {
 
 
-	class ImageAtlas {
-		MapGrid Grid;
-		int ImageMap;
-		std::vector<SpriteLoc *> spriteImages;
-		OPImage l_OPImage;
-		GLuint GLImage;
+	class ImageAtlas : public EventCaller {
+
+		int l_Size;
+		int l_MaxSize;
+		int l_ImageMap;
+
+		std::string l_Dir;
+
+		std::vector<std::string> l_unallocatedFiles;
+		std::vector<SpriteLoc *> l_spriteImages;
+
+		MapGrid * l_Grid;
+		OPImage * l_OPImage;
+		GLuint l_GLImage;
+
+	protected:
+		void growAtlas();
+
+
 	public:
-		ImageAtlas(const char* dirName, int imageMap);
+		ImageAtlas(const char* dirName, int imageMap, EventListner * game);
 
 		GLuint getImage();
 
-		void addSprite(OP::OPImage image, const char* filename, bool redraw);
+		std::vector<std::string> * getUnallocated();
 
-		SpriteLoc &getSprite(const char * fileName);
+		bool addSprite(OP::OPImage image, const char* filename, bool redraw);
+
+		const std::vector<SpriteLoc *> * getSpriteMap();
+
+
+		SpriteLoc * getSprite(const char * fileName);
 
 		int getImageMap();
 

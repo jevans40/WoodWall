@@ -12,9 +12,6 @@
     <Filter Include="Source Files\Graphics">
       <UniqueIdentifier>{e3ce55b8-870a-4f6f-a299-ee0b369e26c8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Graphics">
-      <UniqueIdentifier>{b24f0b9a-2aaa-44ce-8206-657ba079c612}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Events">
       <UniqueIdentifier>{27fee7f4-ecb8-44fc-b1e2-eb3381d7e1b9}</UniqueIdentifier>
     </Filter>
@@ -40,9 +37,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\Graphics\Buffers">
-      <UniqueIdentifier>{5922b9ee-4969-433c-8fe0-e6a8c1ddb549}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Graphics\Buffers">
       <UniqueIdentifier>{431bdf8a-01fb-4ab1-91d8-56ce9cb894d0}</UniqueIdentifier>
     </Filter>
@@ -52,11 +46,14 @@
     <Filter Include="Source Files\Utils\Image">
       <UniqueIdentifier>{5ab22819-4a49-4719-b85f-b75dba6a22d5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Graphics">
+      <UniqueIdentifier>{b24f0b9a-2aaa-44ce-8206-657ba079c612}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Graphics\Buffers">
+      <UniqueIdentifier>{5922b9ee-4969-433c-8fe0-e6a8c1ddb549}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Window.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
@@ -116,6 +113,12 @@
     </ClCompile>
     <ClCompile Include="ImageAtlas.cpp">
       <Filter>Source Files\Utils\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeImage.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="FontLoader.cpp">
+      <Filter>Source Files\Utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +193,18 @@
     </ClInclude>
     <ClInclude Include="OPImage.h">
       <Filter>Header Files\Utils\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="Initalizer.h">
+      <Filter>Header Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="FreeImage.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="OPInclude.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FontLoader.h">
+      <Filter>Header Files\Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -43,8 +43,8 @@ void OP::Renderable::setYPos(float y)
 	VertData[0].pos.y = y;
 	VertData[0].pos.y = y ;
 	VertData[1].pos.y = y ;
-	VertData[2].pos.y = y + Size.y ;
-	VertData[3].pos.y = y + Size.y ;
+	VertData[2].pos.y = (y + Size.y) ;
+	VertData[3].pos.y = (y + Size.y) ;
 }
 
 void OP::Renderable::setZPos(float z)
@@ -121,10 +121,10 @@ void OP::Renderable::setTexx(float Texx)
 void OP::Renderable::setTexy(float Texy)
 {
 	TexPos.y = Texy;
-	VertData[0].texPos.y = Texy;
-	VertData[1].texPos.y = Texy;
-	VertData[2].texPos.y = Texy + TexSize.y;
-	VertData[3].texPos.y = Texy + TexSize.y;
+	VertData[0].texPos.y = (Texy + TexSize.y);
+	VertData[1].texPos.y = (Texy + TexSize.y);
+	VertData[2].texPos.y = Texy;
+	VertData[3].texPos.y = Texy;
 }
 
 void OP::Renderable::setTexMap(int TexMap)
