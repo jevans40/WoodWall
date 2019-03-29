@@ -6,6 +6,8 @@
 #include <cassert>
 
 
+
+
 OP::Game::Game(const char* gameName, int x, int y, const char * gameDir) : l_Window(new Window(gameName, x, y)), l_Renderer(l_Window)
 {
 
@@ -16,7 +18,6 @@ OP::Game::Game(const char* gameName, int x, int y, const char * gameDir) : l_Win
 
 OP::Game::~Game()
 {
-	
 	l_Layers.clear();
 	l_Layers.shrink_to_fit();
 	l_Window->~Window();
@@ -55,7 +56,7 @@ void OP::Game::Start()
 
 void OP::Game::Init()
 {
-	//~~~To be implemented
+	//~~~To be implemented by child class
 }
 
 void OP::Game::AddLayer(Layer &newLayer)

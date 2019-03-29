@@ -2,9 +2,8 @@
 
 const std::vector < OP::SpriteLoc* > * OP::SimpleSprite::l_SpriteImages;
 
-OP::SimpleSprite::SimpleSprite(EventListner * Game, fvec3 pos, fvec2 size, unsigned int Color) : Renderable(pos, size, Color)
+OP::SimpleSprite::SimpleSprite(fvec3 pos, fvec2 size, unsigned int Color) : Renderable(pos, size, Color)
 {
-	addListener(Game);
 	setTexx(0);
 	setTexy(0);
 	setTexSize({ 1,1 });
@@ -18,7 +17,7 @@ void OP::SimpleSprite::setSprite(int spriteIndex)
 	if (spriteIndex >= 0 && spriteIndex < l_SpriteImages->size()) {
 		if ((*l_SpriteImages)[spriteIndex] != nullptr) {
 			this->setTexx(-(*l_SpriteImages)[spriteIndex]->Pos.x);
-			this->setTexy(-(*l_SpriteImages)[spriteIndex]->Pos.y);
+			this->setTexy( -(*l_SpriteImages)[spriteIndex]->Pos.y);
 			this->setTexSize({((*l_SpriteImages)[spriteIndex]->Size.x * -1),((*l_SpriteImages)[spriteIndex]->Size.y * -1) });
 			this->setTexMap((*l_SpriteImages)[spriteIndex]->TexMap);
 		}

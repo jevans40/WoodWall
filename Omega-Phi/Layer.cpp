@@ -33,6 +33,16 @@ namespace OP {
 		//std::sort(l_Sprites.begin(), l_Sprites.end(), [](Renderable * left, Renderable * right) {return  left->getZPos() < right->getZPos(); });
 	}
 
+	void Layer::removeRenderable(Renderable & renderable)
+	{
+		for (int i = 0; i < l_Sprites.size(); i++) {
+			if (&renderable == l_Sprites[i]) {
+				delete l_Sprites[i];
+				l_Sprites.erase(l_Sprites.begin() + i);
+			}
+		}
+	}
+
 	int Layer::getPriority() const
 	{
 		return l_Priority;

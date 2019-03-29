@@ -1,4 +1,5 @@
-﻿  FontLoader.cpp
-c:\users\jesse\documents\github\woodwall\omega-phi\fontloader.cpp(23): warning C4018: '<': signed/unsigned mismatch
-c:\users\jesse\documents\github\woodwall\omega-phi\fontloader.cpp(24): warning C4018: '<': signed/unsigned mismatch
+﻿  StringSprite.cpp
+c:\users\jesse\documents\github\woodwall\omega-phi\datastructure.h(196): warning C4086: expected pragma parameter to be '1', '2', '4', '8', or '16'
+c:\users\jesse\documents\github\woodwall\omega-phi\stringsprite.cpp(37): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+c:\users\jesse\documents\github\woodwall\omega-phi\stringsprite.cpp(45): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
   Omega-Phi.vcxproj -> C:\Users\Jesse\Documents\GitHub\WoodWall\x64\Debug\Omega-Phi.lib

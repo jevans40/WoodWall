@@ -48,7 +48,7 @@ OP::ImageAtlas::ImageAtlas(const char * dirName, int imageMap, OP::EventListner 
 	}
 
 	for (int i = 0; i < 255; i++) {
-		if (!addSprite(FontLoader::getCharImage(char(i)), std::string((char) i).c_str() , false)) {
+		if (!addSprite(FontLoader::getCharImage(char(i)), std::string(1, char(i) ).c_str(), false)) {
 			callListner("outOfAtlasSpace", this);
 			for (int k = 0; k < SpriteFiles.size() - i; k++) {
 				l_unallocatedFiles.push_back(SpriteFiles[i + k]);
@@ -109,16 +109,18 @@ bool OP::ImageAtlas::addSprite(OP::OPImage image, const char* filename, bool red
 	}
 	
 	SpriteLoc * sprite = new SpriteLoc();
+
+	//THIS IS BROKEN FIX IT TOMORROW!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+	std::string str = std::string(filename).substr(0,l_Dir.size());
 	try {
-		std::string str = std::string(filename).substr(0,l_Dir.size()-1);
 		if (str == l_Dir) {
-			filename = std::string(filename).erase(0, l_Dir.size() + 1).c_str();
+			str = std::string(filename).erase(0, l_Dir.size() + 1);
 		}
 	}
 	catch (std::out_of_range&) {
 		//oops str is too short!!!
 	}
-	sprite->Name = std::string(filename).erase(0, l_Dir.size() + 1);
+	sprite->Name = str.c_str();
 	sprite->Pos = fvec2((((float)Pos.x + deltaWidth/2) / l_OPImage->Width),(((float) Pos.y + deltaHeight/2) / l_OPImage->Height));
 	sprite->Size = fvec2((float) image.Width / l_OPImage->Width,(float) image.Height / l_OPImage->Height);
 	sprite->TexMap = l_ImageMap;

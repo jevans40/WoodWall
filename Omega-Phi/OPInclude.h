@@ -10,3 +10,9 @@
 #include "FileLoader.h"
 #include "ImageLoader.h"
 
+void InitializeOmegaPhi() {
+
+	OP::InitFreeImage;
+	OP::FontLoader::InitalizeFreeType(64);
+	OP::Initalization::run_init();
+}

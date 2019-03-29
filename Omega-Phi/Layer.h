@@ -44,7 +44,7 @@ namespace OP {
 		 */
 
 
-		Layer(Window* window, Shader &shader, const char* name = "Default Name", int priority = 0) : l_Shader(shader), l_Window(window), l_name(name), l_Priority(priority) {
+		Layer(Window* window, Shader &shader, const char* name = "Default Name", int priority = 0) : l_Shader(shader), l_Window(window), l_name(name), l_Priority(priority), l_Sprites() {
 			std::cout << " I made it here before I crashed yay";
 		}
 
@@ -83,6 +83,8 @@ namespace OP {
 		 */
 
 		void AddRenderable(Renderable &renderable);
+
+		void removeRenderable(Renderable &renderable);
 
 		/**
 		 * @fn	int Layer::getPriority();
