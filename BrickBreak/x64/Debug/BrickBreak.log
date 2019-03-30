@@ -1,0 +1,6 @@
+﻿  main.cpp
+c:\users\jesse\documents\github\woodwall\omega-phi\datastructure.h(196): warning C4086: expected pragma parameter to be '1', '2', '4', '8', or '16'
+c:\users\jesse\documents\github\woodwall\omega-phi\opinclude.h(21): warning C4551: function call missing argument list
+c:\users\jesse\documents\github\woodwall\brickbreak\brickbreak.h(20): warning C4101: 'height': unreferenced local variable
+c:\users\jesse\documents\github\woodwall\brickbreak\brickbreak.h(19): warning C4101: 'width': unreferenced local variable
+  BrickBreak.vcxproj -> C:\Users\Jesse\Documents\GitHub\WoodWall\x64\Debug\BrickBreak.exe

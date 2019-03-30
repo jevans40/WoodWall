@@ -33,7 +33,7 @@ OP::OPImage &OP::FontLoader::getCharImage(char toGet)
 		for (int k = 0; k < bitmap.rows; k++) {
 			char color = bitmap.buffer[k*ImageTmp.Width + i];
 			
-			ImageTmp.Texels[((bitmap.width)*(bitmap.rows)-1) - ((k)*ImageTmp.Width + (bitmap.width - i - 1))] = RGBQUAD({ 0, 0, 0, BYTE(color) });
+			ImageTmp.Texels[((bitmap.width)*(bitmap.rows)-1) - ((k)*ImageTmp.Width + (bitmap.width - i - 1))] = RGBQUAD({ BYTE(255-color), BYTE(255-color), BYTE(255-color), BYTE(color) });
 		}
 	}
 	OPchar* newChar = new OPchar();

@@ -5,7 +5,9 @@
 
 #include "OPMath.h"
  
-
+#include "Renderable.h"
+#include "SimpleSprite.h"
+#include "StringSprite.h"
 
 #include "Game.h"
 #include "DataStructure.h"

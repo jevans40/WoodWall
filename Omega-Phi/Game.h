@@ -63,7 +63,23 @@ namespace OP{
 
 		void AddLayer(Layer &newLayer);
 
+		/**
+		 * @fn	void Game::UpdateAtlas();
+		 *
+		 * @brief	Updates the SpriteImages and Layer Textures from the Atlas
+		 */
+
 		void UpdateAtlas();
+
+		/**
+		/* DEPRICATED
+		 * @fn	void Game::getSprite(const char* spriteName);
+		 *
+		 * @brief	Gets a sprite
+		 *
+		 * @param	spriteName	Name of the sprite.
+		 * DEPRICATED
+		 */
 
 		void getSprite(const char* spriteName);
 
