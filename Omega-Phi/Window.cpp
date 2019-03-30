@@ -9,6 +9,8 @@
 
 namespace OP {
 
+	
+
 
 	void FreeImageErrorHandler(FREE_IMAGE_FORMAT fif, const char *message) {
 		printf("\n*** ");
@@ -95,4 +97,16 @@ namespace OP {
 			return l_Window;
 		return nullptr;
 	}
+
+	void Window::key_callback(GLFWwindow * window, int key, int scancode, int action, int mods)
+	{
+		GLFW_KEY_E;
+
+
+	}
+
+
+
+
+
 }
