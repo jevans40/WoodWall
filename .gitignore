@@ -8,3 +8,7 @@
 *.ilk
 *.pbd
 *.obj
+**/x64
+**/debug
+**/release
+**/Doxygen

@@ -1,5 +1,0 @@
-﻿  FontLoader.cpp
-c:\users\jesse\documents\github\woodwall\omega-phi\fontloader.cpp(32): warning C4018: '<': signed/unsigned mismatch
-c:\users\jesse\documents\github\woodwall\omega-phi\fontloader.cpp(33): warning C4018: '<': signed/unsigned mismatch
-c:\users\jesse\documents\github\woodwall\omega-phi\fontloader.cpp(49): warning C4172: returning address of local variable or temporary: ImageTmp
-  Omega-Phi.vcxproj -> C:\Users\Jesse\Documents\GitHub\WoodWall\x64\Debug\Omega-Phi.lib
