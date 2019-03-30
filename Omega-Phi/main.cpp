@@ -45,7 +45,7 @@ inline void WoodWall::Init() {
 	//House * sprite = new House(this, { 0,0,1 }, { 1080,1080 }, OP::Renderable::GetColor(0xFF, 0xFF, 0xFF, 128));
 	//l_Layers[0]->AddRenderable(*sprite);
 
-	OP::StringSprite * string = new OP::StringSprite(l_Layers[0], { 20,20,20 }, 720, true, lorum.c_str(), .4);
+	OP::StringSprite * string = new OP::StringSprite(l_Layers[0], { 20,20,20 }, 720, true, lorum.c_str(), 1.25);
 
 	OP::Renderable * sprite2 = new OP::Renderable({ 0,0,2002 }, { 1920,1080 }, OP::Renderable::GetColor(0xFF, 0xFF, 0xFF, 128));
 	l_Layers[0]->AddRenderable(*sprite2);

@@ -1,4 +1,8 @@
 #pragma once
+//#define FREEIMAGE_LIB
+#include <string.h>
+#include "FreeImage.h"
+
 #include "OPMath.h"
  
 
@@ -13,6 +17,6 @@
 void InitializeOmegaPhi() {
 
 	OP::InitFreeImage;
-	OP::FontLoader::InitalizeFreeType(64);
+	OP::FontLoader::InitalizeFreeType(16);
 	OP::Initalization::run_init();
 }

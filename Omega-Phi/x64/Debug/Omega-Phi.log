@@ -1,5 +1,60 @@
-﻿  StringSprite.cpp
+﻿  EventCaller.cpp
+  FileLoader.cpp
+c:\users\jesse\documents\github\woodwall\omega-phi\fileloader.cpp(18): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+  FontLoader.cpp
+c:\users\jesse\documents\github\woodwall\omega-phi\fontloader.cpp(32): warning C4018: '<': signed/unsigned mismatch
+c:\users\jesse\documents\github\woodwall\omega-phi\fontloader.cpp(33): warning C4018: '<': signed/unsigned mismatch
+  FreeImage.cpp
+  fvec2.cpp
+  fvec3.cpp
+  fvec4.cpp
+  Game.cpp
+c:\users\jesse\documents\github\woodwall\omega-phi\datastructure.h(196): warning C4086: expected pragma parameter to be '1', '2', '4', '8', or '16'
+c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(39): warning C4244: '=': conversion from '__int64' to 'float', possible loss of data
+c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(40): warning C4244: '=': conversion from '__int64' to 'float', possible loss of data
+  ImageAtlas.cpp
+c:\users\jesse\documents\github\woodwall\omega-phi\datastructure.h(196): warning C4086: expected pragma parameter to be '1', '2', '4', '8', or '16'
+c:\users\jesse\documents\github\woodwall\omega-phi\imageatlas.cpp(12): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\jesse\documents\github\woodwall\omega-phi\imageatlas.cpp(13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\jesse\documents\github\woodwall\omega-phi\imageatlas.cpp(14): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\jesse\documents\github\woodwall\omega-phi\imageatlas.cpp(15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\jesse\documents\github\woodwall\omega-phi\imageatlas.cpp(80): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\jesse\documents\github\woodwall\omega-phi\imageatlas.cpp(81): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\jesse\documents\github\woodwall\omega-phi\imageatlas.cpp(82): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\jesse\documents\github\woodwall\omega-phi\imageatlas.cpp(83): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\jesse\documents\github\woodwall\omega-phi\imageatlas.cpp(90): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\jesse\documents\github\woodwall\omega-phi\imageatlas.cpp(91): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\jesse\documents\github\woodwall\omega-phi\imageatlas.cpp(101): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\jesse\documents\github\woodwall\omega-phi\imageatlas.cpp(102): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  ImageLoader.cpp
+c:\users\jesse\documents\github\woodwall\omega-phi\imageloader.cpp(199): warning C4101: 'rgbquad': unreferenced local variable
+  ivec2.cpp
+  ivec3.cpp
+  ivec4.cpp
+  Layer.cpp
+c:\users\jesse\documents\github\woodwall\omega-phi\datastructure.h(196): warning C4086: expected pragma parameter to be '1', '2', '4', '8', or '16'
+c:\users\jesse\documents\github\woodwall\omega-phi\layer.cpp(20): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  mat4f.cpp
+  OPEvent.cpp
+  Renderable.cpp
+c:\users\jesse\documents\github\woodwall\omega-phi\datastructure.h(196): warning C4086: expected pragma parameter to be '1', '2', '4', '8', or '16'
+  Renderer.cpp
+c:\users\jesse\documents\github\woodwall\omega-phi\datastructure.h(196): warning C4086: expected pragma parameter to be '1', '2', '4', '8', or '16'
+c:\users\jesse\documents\github\woodwall\omega-phi\renderer.cpp(35): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+  Shader.cpp
+  SimpleSprite.cpp
+c:\users\jesse\documents\github\woodwall\omega-phi\datastructure.h(196): warning C4086: expected pragma parameter to be '1', '2', '4', '8', or '16'
+  Generating Code...
+c:\users\jesse\documents\github\woodwall\omega-phi\game.cpp(126): warning C4715: 'OP::Game::[OP::EventListner]::HandleEvent': not all control paths return a value
+c:\users\jesse\documents\github\woodwall\omega-phi\fontloader.cpp(49): warning C4172: returning address of local variable or temporary: ImageTmp
+  Compiling...
+  StringSprite.cpp
 c:\users\jesse\documents\github\woodwall\omega-phi\datastructure.h(196): warning C4086: expected pragma parameter to be '1', '2', '4', '8', or '16'
 c:\users\jesse\documents\github\woodwall\omega-phi\stringsprite.cpp(37): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
 c:\users\jesse\documents\github\woodwall\omega-phi\stringsprite.cpp(45): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+  VertexBuffer.cpp
+c:\users\jesse\documents\github\woodwall\omega-phi\datastructure.h(196): warning C4086: expected pragma parameter to be '1', '2', '4', '8', or '16'
+c:\users\jesse\documents\github\woodwall\omega-phi\vertexbuffer.cpp(76): warning C4018: '<': signed/unsigned mismatch
+  Window.cpp
+  Generating Code...
   Omega-Phi.vcxproj -> C:\Users\Jesse\Documents\GitHub\WoodWall\x64\Debug\Omega-Phi.lib
