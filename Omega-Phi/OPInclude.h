@@ -18,7 +18,7 @@
 
 void InitializeOmegaPhi() {
 
-	OP::InitFreeImage;
+	OP::InitFreeImage();
 	OP::FontLoader::InitalizeFreeType(16);
 	OP::Initalization::run_init();
 }

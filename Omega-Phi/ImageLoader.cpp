@@ -97,7 +97,7 @@ OP::OPImage & OP::NewImage(ivec2 size)
 			{
 				FreeImage_GetPixelColor(bitmap, x, y, &rgbquad);
 				if (rgbquad.rgbReserved > 0) {
-					rgbquad.rgbReserved = 255;
+					//rgbquad.rgbReserved = 255;
 				}
 				texels[y*width + x] = rgbquad;
 			}
@@ -167,7 +167,7 @@ GLuint OP::TurnBitMapToTextureLinear(OPImage &dib1)
 			rgbquad = dib1.Texels[y * dib1.Width + x];
 
 			if (rgbquad.rgbReserved > 0) {
-				rgbquad.rgbReserved = 255;
+				//rgbquad.rgbReserved = 255;
 			}
 
 			texels[(y*scanLineWidh + 4 * x)] = ((GLubyte*)&rgbquad)[2];

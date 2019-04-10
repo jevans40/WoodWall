@@ -1,8 +1,13 @@
 #pragma once
 #include "OPMath.h"
 #include "DataStructure.h"
+#include <iostream>
+#include <chrono>
+
+
 namespace OP {
 
+	class Layer;
 
 
 	class Renderable {
@@ -15,6 +20,8 @@ namespace OP {
 		fvec2 TexSize;
 		unsigned int Color;
 		int TexMap;
+
+		Layer * p_Layer;
 
 
 	protected:
@@ -62,6 +69,8 @@ namespace OP {
 
 	public:
 
+		virtual ~Renderable();
+
 		Renderable();
 
 		/**
@@ -90,6 +99,7 @@ namespace OP {
 		 */
 
 		void setXPos(float x);
+
 
 		/**
 		 * @fn	void Renderable::setYPos(float y);
@@ -158,6 +168,16 @@ namespace OP {
 		 */
 
 		float getZPos();
+
+		/**
+		 * @fn	OP::fvec2 getSize();
+		 *
+		 * @brief	Gets the size
+		 *
+		 * @returns	The size.
+		 */
+
+		OP::fvec2 getSize();
 					
 
 		/**
@@ -190,7 +210,28 @@ namespace OP {
 		 * @param	time	The time.
 		 */
 
-		virtual void Update(int time);
+		virtual void Update(std::chrono::milliseconds Time);
+
+		/**
+		 * @fn	void Renderable::setLayer(Layer * layer);
+		 *
+		 * @brief	Sets a layer
+		 *
+		 * @param [in,out]	layer	If non-null, the layer.
+		 */
+
+		void setLayer(Layer * layer);
+
+
+		/**
+		 * @fn	Layer * Renderable::getLayer();
+		 *
+		 * @brief	Gets the layer
+		 *
+		 * @returns	Null if it fails, else the layer.
+		 */
+
+		Layer * getLayer();
 
 		/**
 		 * @fn	static unsigned int Renderable::GetColor(unsigned char r, unsigned char g, unsigned char b, unsigned char a);

@@ -1,10 +1,18 @@
 #include "Renderable.h"
+#include "Layer.h"
 #include <iostream>
+
+
+
 void OP::Renderable::setTexSize(fvec2 size)
 {
 	TexSize = size;
 	setTexx(TexPos.x);
 	setTexy(TexPos.y);
+}
+OP::Renderable::~Renderable()
+{
+	std::cout << "Renderable has been destroyed!" << std::endl;
 }
 OP::Renderable::Renderable()
 {
@@ -35,6 +43,16 @@ void OP::Renderable::setXPos(float x)
 	VertData[1].pos.x = x + Size.x ;
 	VertData[2].pos.x = x + Size.x ;
 	VertData[3].pos.x = x ;
+}
+
+void OP::Renderable::setLayer(Layer * layer)
+{
+	p_Layer = layer;
+}
+
+OP::Layer * OP::Renderable::getLayer()
+{
+	return p_Layer;
 }
 
 void OP::Renderable::setYPos(float y)
@@ -98,7 +116,7 @@ OP::Vertex * OP::Renderable::getVertexArray()
 	return VertData;
 }
 
-void OP::Renderable::Update(int time)
+void OP::Renderable::Update(std::chrono::milliseconds Time)
 {
 
 }
@@ -107,6 +125,10 @@ unsigned int OP::Renderable::GetColor(unsigned char r, unsigned char g, unsigned
 {
 	unsigned int Color = (int(a) << 24) + (int(b) << 16) + (int(g) << 8) + (int(r) << 0) ;
 	return Color;
+}
+
+OP::fvec2 OP::Renderable::getSize() {
+	return Size;
 }
 
 void OP::Renderable::setTexx(float Texx)

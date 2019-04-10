@@ -10,10 +10,11 @@ in flat int TexMap;
 out vec4 fragcolor;
 
 void main(){
+  vec4 texColor = texture(texture1,vec2(1-TexPos.x, 1-TexPos.y));
 
-  if(TexMap > -1 && TexMap < 32){
-    if(texture(texture1,vec2(1-TexPos.x,1-TexPos.y)).a != 0){
-		fragcolor = texture(texture1,vec2(1-TexPos.x, 1-TexPos.y));
+  if(TexMap > -1 && (texColor.r != float(1)/255 && texColor.g != float(2)/255 && texColor.b != float(3)/255)){
+    if(texColor.a != 0){
+		fragcolor = texColor;
 	}else{
 		discard;
 	}

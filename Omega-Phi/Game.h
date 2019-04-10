@@ -12,6 +12,8 @@ namespace OP{
 		Renderer l_Renderer;
 		std::vector<ImageAtlas*> l_SpriteAtlas;//(ImageAtlas*) malloc(GL_MAX_TEXTURE_UNITS * sizeof(ImageAtlas));
 
+		OP::ivec2 l_size;
+
 	public:
 
 		/**
@@ -109,8 +111,17 @@ namespace OP{
 		 * @param	time	The time in ms.
 		 */
 
-		void Update(int time);
+		void Update(std::chrono::milliseconds time);
 			
+
+		bool getKey(char key);
+
+		OP::ivec2 getSize();
+
+		int getHeight();
+		
+		int getWidth();
+
 
 		virtual void* OP::EventListner::HandleEvent(OP::OPEvent * event);
 	

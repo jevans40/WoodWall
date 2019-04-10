@@ -141,6 +141,8 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CollisionGrid.cpp" />
+    <ClCompile Include="CollisionQuadTree.cpp" />
     <ClCompile Include="EventCaller.cpp" />
     <ClCompile Include="FileLoader.cpp" />
     <ClCompile Include="FontLoader.cpp" />
@@ -151,6 +153,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="ImageAtlas.cpp" />
     <ClCompile Include="ImageLoader.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="ivec2.cpp" />
     <ClCompile Include="ivec3.cpp" />
     <ClCompile Include="ivec4.cpp" />
@@ -160,17 +163,22 @@
     <ClCompile Include="Renderable.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="Simple2DPhysics.cpp" />
+    <ClCompile Include="SimpleBoundingBox.cpp" />
     <ClCompile Include="SimpleSprite.cpp" />
     <ClCompile Include="StringSprite.cpp" />
     <ClCompile Include="VertexBuffer.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CollisionGrid.h" />
+    <ClInclude Include="CollisionQuadTree.h" />
     <ClInclude Include="DataStructure.h" />
     <ClInclude Include="EventCaller.h" />
     <ClInclude Include="FontLoader.h" />
     <ClInclude Include="FreeImage.h" />
     <ClInclude Include="Initalizer.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="OPImage.h" />
     <ClInclude Include="ImageAtlas.h" />
     <ClInclude Include="OPEvent.h" />
@@ -191,14 +199,12 @@
     <ClInclude Include="Renderable.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="Simple2DPhysics.h" />
+    <ClInclude Include="SimpleBoundingBox.h" />
     <ClInclude Include="SimpleSprite.h" />
     <ClInclude Include="StringSprite.h" />
     <ClInclude Include="VertexBuffer.h" />
     <ClInclude Include="Window.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="FragShader.frag" />
-    <None Include="VertexShader.vert" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\res\Grass clone.png" />
@@ -206,6 +212,10 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\res\Shaders\FragShader.frag" />
+    <None Include="..\res\Shaders\VertexShader.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

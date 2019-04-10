@@ -1,11 +1,12 @@
 #pragma once
-#include "Window.h"
 #include "Renderable.h"
 #include <vector>
 #include "Shader.h"
 #include "VertexBuffer.h"
 #include "EventListener.h"
 #include "SimpleSprite.h"
+
+
 /**
  * @namespace	OP
  *
@@ -13,6 +14,8 @@
  */
 
 namespace OP {
+	
+	class Game;
 
 	/**
 	 * @class	Layer
@@ -21,9 +24,9 @@ namespace OP {
 	 */
 
 	class Layer {
-	private:
+	protected:
 		const char* l_name;
-		Window* l_Window;
+		Game * p_Game;
 		int l_Priority;
 		Shader l_Shader;
 		VertexBuffer l_VertexBuffer; 
@@ -44,8 +47,7 @@ namespace OP {
 		 */
 
 
-		Layer(Window* window, Shader &shader, const char* name = "Default Name", int priority = 0) : l_Shader(shader), l_Window(window), l_name(name), l_Priority(priority), l_Sprites() {
-			std::cout << " I made it here before I crashed yay";
+		Layer(Game * game, Shader &shader, const char* name = "Default Name", int priority = 0) : l_Shader(shader), p_Game(game), l_name(name), l_Priority(priority), l_Sprites() {
 		}
 
 		/**
@@ -64,7 +66,7 @@ namespace OP {
 		 * @param	time	The time in ms.
 		 */
 
-		void Update(int time);
+		virtual void Update(std::chrono::milliseconds time);
 
 		/**
 		 * @fn	void Layer::Render();
@@ -84,6 +86,14 @@ namespace OP {
 
 		void AddRenderable(Renderable &renderable);
 
+		/**
+		 * @fn	void Layer::removeRenderable(Renderable &renderable);
+		 *
+		 * @brief	Removes the renderable described by renderable
+		 *
+		 * @param [in,out]	renderable	The renderable.
+		 */
+
 		void removeRenderable(Renderable &renderable);
 
 		/**
@@ -95,6 +105,15 @@ namespace OP {
 		 */
 
 		int getPriority() const;
+
+		/**
+		 * @fn	void Layer::AddTexture(GLuint texID, GLuint texUnit);
+		 *
+		 * @brief	Adds a texture to 'texUnit'
+		 *
+		 * @param	texID  	Identifier for the tex.
+		 * @param	texUnit	The tex unit.
+		 */
 
 		void AddTexture(GLuint texID, GLuint texUnit);
 
@@ -117,6 +136,18 @@ namespace OP {
 		 */
 
 		const VertexBuffer &getVertexBuffer();
+
+		/**
+		 * @fn	bool Layer::getKey(const char* key);
+		 *
+		 * @brief	Gets a key
+		 *
+		 * @param	key	The key.
+		 *
+		 * @returns	True if it succeeds, false if it fails.
+		 */
+
+		bool getKey(const char* key);
 
 	};
 

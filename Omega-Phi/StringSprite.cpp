@@ -20,6 +20,12 @@ void OP::StringSprite::makeStringSprite()
 	int wordAdvance = 0;
 	int currentOffsetx = 0;
 	int currentOffsety = 0;
+
+	for (int i = 0; i < l_Sprites.size(); i++) {
+		p_Layer->removeRenderable(*l_Sprites[i]);
+	}
+	l_Sprites.erase(l_Sprites.begin(), l_Sprites.end());
+	
 	for (int i = 0; i < l_String.size(); i++) {
 		if (l_String[i] == ' ') {
 			for (int k = i + 1; k < l_String.size(); k++) {
@@ -48,5 +54,53 @@ void OP::StringSprite::makeStringSprite()
 			p_Layer->AddRenderable(*newSprite);
 		}
 	}
+}
+
+void OP::StringSprite::setString(std::string newString)
+{
+	l_String = newString;
+	makeStringSprite();
+}
+
+void OP::StringSprite::toggleWordWrap(bool toggle)
+{
+	l_wordWrap = toggle;
+}
+
+void OP::StringSprite::setPos(fvec3 pos)
+{
+	fvec3 difference = (pos.x - l_Pos.x, pos.y - l_Pos.y, pos.z - l_Pos.z);
+	for (int i = 0; i < l_Sprites.size(); i++) {
+		l_Sprites[i]->setXPos(l_Sprites[i]->getXPos() + difference.x);
+		l_Sprites[i]->setYPos(l_Sprites[i]->getYPos() + difference.y);
+		l_Sprites[i]->setZPos(l_Sprites[i]->getZPos() + difference.z);
+	}
+	l_Pos = pos;
+}
+
+void OP::StringSprite::setMaxSize(int size)
+{
+	l_MaxSize = size;
+
+}
+
+int OP::StringSprite::getMaxSize()
+{
+	return l_MaxSize;
+}
+
+std::string OP::StringSprite::getString()
+{
+	return l_String;
+}
+
+bool OP::StringSprite::getWordWrap()
+{
+	return l_wordWrap;
+}
+
+OP::fvec3 OP::StringSprite::getPos()
+{
+	return l_Pos;
 }
 

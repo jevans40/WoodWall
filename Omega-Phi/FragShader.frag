@@ -10,15 +10,15 @@ in flat int TexMap;
 out vec4 fragcolor;
 
 void main(){
-
-  if(TexMap > -1 && TexMap < 32){
-    if(texture(texture1,vec2(1-TexPos.x,1-TexPos.y)).a != 0){
-		fragcolor = texture(texture1,vec2(1-TexPos.x, 1-TexPos.y));
+  vec4 texColor = texture(texture1,vec2(1-TexPos.x, 1-TexPos.y));
+  if(false ){//&& (texColor.r != 1 && texColor.g != 2 && texColor.b != 3)){
+    if(texColor.a != 0){
+		fragcolor = texColor;
 	}else{
 		discard;
 	}
   }
   else{
-	fragcolor = vec4(Color);
+	fragcolor = vec4(255,255,255,255);
   }
 }

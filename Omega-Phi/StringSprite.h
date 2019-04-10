@@ -23,25 +23,26 @@ namespace OP{
 		float l_Scale;
 
 public:
+
 	StringSprite(OP::Layer * Layer, OP::fvec3 pos = OP::fvec3(0, 0, 0), int MaxSize = 0, bool wordWrap = true, std::string string = "Error No Text", float scale = 1);
 
 	void makeStringSprite();
 
-	void setString();
+	void setString(std::string newString);
 
-	void toggleWordWrap();
+	void toggleWordWrap(bool toggle);
 
-	void setPos();
+	void setPos(fvec3 newPos);
 
-	void setMaxSize();
+	void setMaxSize(int newSize);
 
-	void getMaxSize();
+	int getMaxSize();
 
-	void getString();
+	std::string getString();
 
-	void getWordWrap();
+	bool getWordWrap();
 
-	void getPos();
+	fvec3 getPos();
 
 	};
 }

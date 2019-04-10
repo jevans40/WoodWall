@@ -1,5 +1,6 @@
 #include "Window.h"
 #include <FreeImage.h>
+#include "Input.h"
 
 /**
  * @namespace	OP
@@ -41,6 +42,8 @@ namespace OP {
 	Window::Window(const char * name = "Game name", int x = 0, int y = 0 ) {
 		Init();
 
+		size = { x,y };
+
 		l_Window = glfwCreateWindow(x, y, name, NULL, NULL);
 		if (!l_Window)
 		{
@@ -70,10 +73,14 @@ namespace OP {
 		printf("%s\n", glGetString(GL_VERSION));
 
 		glfwSetErrorCallback(error_callback);
+		glfwSetKeyCallback(l_Window, OP::Input::key_callback);
+
 		glfwSwapInterval(1);
-	// During init, enable debug output
-	glEnable(GL_DEBUG_OUTPUT);
-	glDebugMessageCallback(MessageCallback, 0);
+		// During init, enable debug output
+		glEnable(GL_DEBUG_OUTPUT);
+		glDebugMessageCallback(MessageCallback, 0);
+
+		OP::Input::addWindow(this);
 	}
 
 	Window::~Window() {
@@ -98,11 +105,35 @@ namespace OP {
 		return nullptr;
 	}
 
-	void Window::key_callback(GLFWwindow * window, int key, int scancode, int action, int mods)
+	void Window::UpdateKeys(char key, int action)
 	{
-		GLFW_KEY_E;
+		std::cout << key << std::endl;
+		if (key == NULL) {
+			return;
+		}
 
+		bool toggled = l_KeyStates[key];
 
+		if (action == GLFW_RELEASE) {
+			toggled = false;
+		}
+
+		if (action == GLFW_PRESS) {
+			toggled = true;
+		}
+
+		l_KeyStates[key] = toggled;
+		
+	}
+
+	bool Window::getKey(char key)
+	{
+		return l_KeyStates[key];
+	}
+
+	ivec2 Window::getSize()
+	{
+		return { size.x,size.y };
 	}
 
 

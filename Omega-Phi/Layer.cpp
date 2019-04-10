@@ -1,5 +1,7 @@
 #include "Layer.h"
+#include "Game.h"
 #include <algorithm>
+#include "Simple2DPhysics.h"
 namespace OP {
 
 
@@ -11,9 +13,11 @@ namespace OP {
 
 	}
 
-	void Layer::Update(int Time) {
-
-		//TODO
+	void Layer::Update(std::chrono::milliseconds Time) {
+		for (int i = 0; i < l_Sprites.size(); i++) {
+			l_Sprites[i]->Update(Time);
+		}
+		
 	}
 
 	void Layer::Render() {
@@ -30,6 +34,7 @@ namespace OP {
 
 	void Layer::AddRenderable(Renderable &renderable) { //Renderable renderable
 		l_Sprites.push_back(&renderable);
+		renderable.setLayer(this);
 		//std::sort(l_Sprites.begin(), l_Sprites.end(), [](Renderable * left, Renderable * right) {return  left->getZPos() < right->getZPos(); });
 	}
 
@@ -39,6 +44,7 @@ namespace OP {
 			if (&renderable == l_Sprites[i]) {
 				delete l_Sprites[i];
 				l_Sprites.erase(l_Sprites.begin() + i);
+				break;
 			}
 		}
 	}
@@ -64,6 +70,11 @@ namespace OP {
 	const VertexBuffer &Layer::getVertexBuffer()
 	{
 		return l_VertexBuffer;
+	}
+
+	bool Layer::getKey(const char* key)
+	{
+		return ((Game *) p_Game)->getKey(key[0]);
 	}
 
 }
