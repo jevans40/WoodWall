@@ -11,7 +11,6 @@ namespace OP {
 
 		private:
 			static CollisionGrid CollisionDetector;
-			static std::vector<SimpleBoundingBox *> possibleCollisions;
 
 			std::vector<SimpleBoundingBox *> Collisions;
 
@@ -60,7 +59,7 @@ namespace OP {
 
 			void setIncorpreal(bool);
 
-			ivec2 getMovement(std::chrono::milliseconds Time);
+			fvec2 getMovement(std::chrono::milliseconds Time);
 
 
 			bool CollidesWith(Simple2DPhysics * collision);
@@ -69,7 +68,7 @@ namespace OP {
 
 			fvec2 getSubPixel();
 
-			void setSubPixel(ivec2 newPosition);
+			void setSubPixel(fvec2 newPosition);
 
 			virtual void onCollision(Simple2DPhysics * left) = 0;
 

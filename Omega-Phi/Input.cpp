@@ -1,4 +1,5 @@
 #include "Input.h"
+#include <string>
 
 std::vector<OP::Window *> OP::Input::l_Windows = std::vector<OP::Window *>();
 
@@ -22,8 +23,12 @@ void OP::Input::key_callback(GLFWwindow * window, int key, int scancode, int act
 {
 	for (int i = 0; i < l_Windows.size(); i++) {
 		if (l_Windows[i]->getWindow() == window) {
-			std::cout << glfwGetKeyName(key, 0) << std::endl;
-			l_Windows[i]->UpdateKeys(glfwGetKeyName(key, 0)[0], action);
+				l_Windows[i]->UpdateKeys(glfwGetKeyName(key, 0)[0], action);
+			if (key != int(key)) {
+				//std::cout << glfwGetKeyName(key, 0) << std::endl;
+			}
+
+				//l_Windows[i]->UpdateKeys(glfwGetKeyName(std::to_string(int(key)).c_str(), 0), action);
 			return;
 		}
 	}

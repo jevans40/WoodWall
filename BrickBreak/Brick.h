@@ -7,15 +7,24 @@ class Brick : public OP::Simple2DPhysics, public OP::SimpleSprite  {
 		int l_HP;
 		int l_CurrentHP;
 		char * color;
+		bool hit = false;
+		bool canHit = true;
+		std::chrono::milliseconds::rep lastTime;
+		OP::fvec3 origpos;
+
 	public:
 		~Brick() override;
 
-		Brick(OP::fvec3 pos, OP::fvec2 size,char * Color, int hp = 5) : SimpleSprite(pos, size, Renderable::GetColor(Color[0],Color[1],Color[2],Color[3])), Simple2DPhysics( OP::fvec2(pos.x, pos.y),OP::ivec2(size.x,size.y)) {
+		Brick(OP::fvec3 pos, OP::fvec2 size, int hp = 5) : SimpleSprite(pos, size, 0xffffffff), Simple2DPhysics( OP::fvec2(pos.x, pos.y),OP::ivec2(size.x,size.y)) {
+			origpos = pos;
+			this->setStatic(true);
 			setSprite("sen.png");
 			l_HP = hp;
 			l_CurrentHP = l_HP;
-			color = Color;
+			color;
 		}
+
+		void reset();
 
 		void Update(std::chrono::milliseconds Time) override;
 

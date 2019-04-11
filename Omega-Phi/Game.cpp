@@ -28,7 +28,7 @@ OP::Game::~Game()
 
 void OP::Game::Start()
 {
-	float targetFPS = 61;
+	float targetFPS = 120;
 	int time = 1;
 	float timeSinceLastFrame = 0;
 	float timeSinceLastUpdate = 0;

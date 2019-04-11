@@ -3,14 +3,14 @@
 
 void Bar::Update(std::chrono::milliseconds Time)
 {
-	OP::ivec2 subpixel = this->getMovement(Time);
+	OP::fvec2 subpixel = this->getMovement(Time);
 	OP::fvec2 velocity = { 0,0 };
 	if (this->getLayer()->getKey("D") || this->getLayer()->getKey("d")) {
-		velocity.x =400;
+		velocity.x =600;
 	}
 
 	if (this->getLayer()->getKey("A")) {
-		velocity.x = -400;
+		velocity.x = -600;
 	}
 	this->setVelocity(velocity);
 
@@ -25,4 +25,10 @@ void Bar::Update(std::chrono::milliseconds Time)
 
 	this->setXPos(subpixel.x);
 
+}
+
+void Bar::reset()
+{
+	this->setXPos(origpos.x);
+	this->setSubPixel({ origpos.x, origpos.y });
 }

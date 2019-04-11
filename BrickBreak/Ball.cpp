@@ -1,19 +1,19 @@
 #include "Ball.h"
 void Ball::Update(std::chrono::milliseconds Time)
 {
-	OP::ivec2 movement = this->getMovement(Time);
+	OP::fvec2 movement = this->getMovement(Time);
 	OP::fvec2 reflection = getVelocity();
 
 
 
-	OP::ivec2 subpixel = { int(this->getSubPixel().x),int(this->getSubPixel().y)};
+	OP::fvec2 subpixel = { this->getSubPixel().x, this->getSubPixel().y};
 	
 	if (subpixel.x < 0) {
 		setSubPixel({ 0,subpixel.y });
 		reflection.x *= -1;
 	}
-	if (subpixel.x > bounds.x - int(getSize().x)) {
-		setSubPixel({ 1280 - int(getSize().x),subpixel.y });
+	if (subpixel.x > bounds.x - getSize().x) {
+		setSubPixel({ 1280 - getSize().x,subpixel.y });
 		reflection.x *= -1;
 	}
 	if (subpixel.y < 0) {
@@ -22,8 +22,9 @@ void Ball::Update(std::chrono::milliseconds Time)
 		reflection.y *= -1;
 	}
 	if (subpixel.y > bounds.y - int(getSize().y)) {
-		setSubPixel({subpixel.x, 720 - int(getSize().y) });
+		setSubPixel({subpixel.x, 720 - getSize().y });
 		reflection.y *= -1;
+		game = true;
 	}
 
 	this->setVelocity(reflection);
@@ -39,9 +40,14 @@ void Ball::onCollision(Simple2DPhysics * left)
 {
 	OP::fvec2 reflection = getVelocity();
 
+	if (left->GetName() == "bar") {
+		float angle = left->getCollisionAngle(*this);
+		std::cout << angle << '\n';
+		reflection = { 400 * cos(angle / float((4 * atan(1))) ), 200 + 200 * abs(cos(angle)) };
+	}
+
 	int Quadrant = this->getCollisionQuadrant(*left);
 	Quadrant = Quadrant;
-	std::cout << Quadrant << std::endl;
 	if (Quadrant == 0 && reflection.x > 0) {
 		reflection.x *= -1;
 	}
@@ -58,4 +64,9 @@ void Ball::onCollision(Simple2DPhysics * left)
 
 	this->setVelocity(reflection);
 	Collision = false;
+}
+
+bool Ball::gameover()
+{
+	return game;
 }
