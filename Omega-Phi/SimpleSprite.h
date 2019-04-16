@@ -32,6 +32,14 @@ namespace OP {
 
 		void * passEvent(const char * eventName, void * source, const char * eventMessage);
 
+		/**
+		/* DEPRICATED
+		 * @fn	static void SimpleSprite::setFiles();
+		 *
+		 * @brief	Sets the files
+		 * 	DEPRICATED
+		 */
+
 		static void setFiles();
 
 	};

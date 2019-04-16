@@ -10,6 +10,7 @@ namespace OP {
 	private:
 		GLuint VertArrayBuffer;
 		GLuint VertArray;
+		unsigned int MaxSize = 4000;
 		unsigned int Index = 0;
 		Vertex* Vertices;
 

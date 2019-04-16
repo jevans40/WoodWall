@@ -10,7 +10,7 @@
 #include <iostream>
 #include <GLFW/glfw3.h>
 #include <unordered_map>
-#include "ivec2.h"
+#include "fvec2.h"
 
 /**
  * @namespace	OP
@@ -30,7 +30,7 @@ namespace OP {
 	private:
 		
 		/** @brief	The window */
-		OP::ivec2 size;
+		OP::fvec2 size;
 		GLFWwindow* l_Window;
 		std::unordered_map<char, bool> l_KeyStates;
 
@@ -93,11 +93,11 @@ namespace OP {
 		 * @param	action	The action.
 		 */
 
-		void UpdateKeys(char key, int action);
+		void UpdateKeys(int key, int action);
 
 		bool getKey(char key);
 
-		ivec2 getSize();
+		fvec2 getSize();
 
 		static void error_callback(int error, const char* description)
 		{

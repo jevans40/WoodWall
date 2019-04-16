@@ -1,61 +1,36 @@
 #pragma once
 #include <vector>
-#include "SimpleBoundingBox.h"
 #include <unordered_map>
 #include <string>
+#include "SimpleBoundingBox.h"
+#include "BoxNode.h"
 
 namespace OP {
 
-
-	struct BoxNode
-	{
-		BoxNode * next = nullptr;
-		SimpleBoundingBox * Box = nullptr;
-
-		BoxNode() {
-			next = nullptr;
-			Box = nullptr;
-		}
-
-		void addBox(SimpleBoundingBox * Box) {
-			if (next == nullptr) {
-				next = new BoxNode();
-				next->Box = Box;
-				return;
-			}
-			next->addBox(Box);
-		}
-
-		BoxNode * removeBox(SimpleBoundingBox * toRemove) {
-			if (Box == toRemove) {
-				return next;
-			}
-			if (next == nullptr) {
-				return this;
-			}
-			else {
-				BoxNode * newNext = next->removeBox(toRemove);
-				if(next != newNext) delete next;
-				next = newNext;
-				return this;
-			}
-		}
-
-		std::vector<SimpleBoundingBox *> * getBoxNodes(std::vector<SimpleBoundingBox * > * Collection) {
-			if (next != nullptr) next->getBoxNodes(Collection);
-			Collection->push_back(Box);
-			return Collection;
-		}
-
-	};
-
 	struct CollisionGridSquare
 	{
+		//A linked list for all tiles in the Grid Square
 		BoxNode* FirstBox = nullptr;
-		
+
+		/**
+		 * @fn	CollisionGridSquare()
+		 *
+		 * @brief	Default constructor
+		 */
+
 		CollisionGridSquare() {
 			FirstBox = nullptr;
 		}
+
+		/**
+		 * @fn	bool removeBox(SimpleBoundingBox * Box)
+		 *
+		 * @brief	Removes the box described by Box
+		 *
+		 * @param [in,out]	Box	If non-null, the box.
+		 *
+		 * @returns	True if it succeeds, false if it fails.
+		 */
 
 		bool removeBox(SimpleBoundingBox * Box) {
 			if (FirstBox == nullptr) {
@@ -71,6 +46,14 @@ namespace OP {
 			return true;
 		}
 
+		/**
+		 * @fn	void addBox(SimpleBoundingBox * Box)
+		 *
+		 * @brief	Adds a box
+		 *
+		 * @param [in,out]	Box	If non-null, the box.
+		 */
+
 		void addBox(SimpleBoundingBox * Box) {
 			if (FirstBox == nullptr) {
 				FirstBox = new BoxNode();
@@ -81,6 +64,16 @@ namespace OP {
 			}
 
 		}
+
+		/**
+		 * @fn	std::vector<SimpleBoundingBox *> * getBoxNodes(std::vector<SimpleBoundingBox * > * Collection)
+		 *
+		 * @brief	Gets box nodes
+		 *
+		 * @param [in,out]	Collection	If non-null, the collection.
+		 *
+		 * @returns	Null if it fails, else the box nodes.
+		 */
 
 		std::vector<SimpleBoundingBox *> * getBoxNodes(std::vector<SimpleBoundingBox * > * Collection) {
 			if (FirstBox == nullptr) {
@@ -95,92 +88,91 @@ namespace OP {
 	};
 
 
-	struct CollisionGrid{
+	struct CollisionGrid {
+
+
 		CollisionGridSquare * l_Grids;
 		int l_Size;
 		int l_SquareSize;
 
+		/**
+		 * @fn	CollisionGrid(int Size, int SquareSize);
+		 *
+		 * @brief	Constructor
+		 *
+		 * @param	Size	  	The size of the collision grid in Tiles
+		 * @param	SquareSize	Size of each Tile.
+		 */
 
-		CollisionGrid(int Size, int SquareSize) {
-			l_Grids = new CollisionGridSquare[Size * Size]();
-			l_Size = Size;
-			l_SquareSize = SquareSize;
-		/*	for (int i = 0; i < Size * Size; i++) {
-				l_Grids[i] = *new CollisionGridSquare();
-			}*/
-		}
+		CollisionGrid(int Size, int SquareSize);
 
-		std::vector<SimpleBoundingBox *> getCollisions(SimpleBoundingBox * Box) {
-			std::vector<SimpleBoundingBox *> tmp;
-			std::vector<int> grids = getIntersectingGrids(Box);
+		/**
+		 * @fn	std::vector<SimpleBoundingBox *> getCollisions(SimpleBoundingBox * Box);
+		 *
+		 * @brief	Gets the possible Collisions of a specified Box
+		 *
+		 * @param [in,out]	Box	If non-null, the box.
+		 *
+		 * @returns	Null if it fails, else the collisions.
+		 */
 
-			for (int i = 0; i < grids.size(); i++) {
-				l_Grids[grids[i]].getBoxNodes(&tmp);
-			}
+		std::vector<SimpleBoundingBox *> getCollisions(SimpleBoundingBox * Box);
 
+		/**
+		 * @fn	int getGrid(ivec2 point);
+		 *
+		 * @brief	Get the grid tile at the given point
+		 *
+		 * @param	point	The point.
+		 *
+		 * @returns	The grid tile.
+		 */
 
-			std::unordered_map<SimpleBoundingBox *, int> map;
-			std::vector<SimpleBoundingBox *> tmp2;
+		int getGrid(ivec2 point);
 
-			for (int i = 0; i < tmp.size(); i++) {
-				map[tmp[i]] = 0;
-			}
+		/**
+		 * @fn	std::vector<int> getIntersectingGrids(SimpleBoundingBox * Box);
+		 *
+		 * @brief	Gets all grids intersecting a given box
+		 *
+		 * @param [in,out]	Box	If non-null, the box.
+		 *
+		 * @returns	The intersecting grids.
+		 */
 
-			for (auto key : map) {
-				if(key.first != Box)
-				tmp2.push_back(key.first);
-			}
+		std::vector<int> getIntersectingGrids(SimpleBoundingBox * Box);
 
-			return tmp2;
-		}
+		/**
+		 * @fn	void InsertBox(SimpleBoundingBox * Box);
+		 *
+		 * @brief	Inserts a box into the tile grid
+		 *
+		 * @param [in,out]	Box	If non-null, the box.
+		 */
 
-		int getGrid(ivec2 point) {
-			point = { point.x + (l_Size / 2 * l_SquareSize), point.y + (l_Size / 2 * l_SquareSize) };
-			return int ((point.x / l_SquareSize) + (point.y / l_SquareSize)* l_Size );
-		}
+		void InsertBox(SimpleBoundingBox * Box);
 
-		std::vector<int> getIntersectingGrids(SimpleBoundingBox * Box) {
-			ivec2 minPoint = Box->getMin();
-			ivec2 maxPoint = Box->getMax();
+		/**
+		 * @fn	void RemoveBox(SimpleBoundingBox * Box);
+		 *
+		 * @brief	Removes the box from the tile Grid
+		 *
+		 * @param [in,out]	Box	If non-null, the box.
+		 */
 
-			int SizeX = maxPoint.x / l_SquareSize - minPoint.x / l_SquareSize + 1;
-			int SizeY = maxPoint.y / l_SquareSize - minPoint.y / l_SquareSize + 1;
+		void RemoveBox(SimpleBoundingBox * Box);
 
+		/**
+		 * @fn	std::string getIntersectedTileNames(SimpleBoundingBox * Box);
+		 *
+		 * @brief	Gets the numbers of Tiles this box intersects
+		 *
+		 * @param [in,out]	Box	If non-null, the box.
+		 *
+		 * @returns	The Tiles the boxes touches.
+		 */
 
-			std::vector<int> grids;
-			
-			if (SizeX == 1 && SizeY == 1) {
-				grids.push_back(getGrid(minPoint));
-			}else{
-				for (int i = 0; i < SizeX * SizeY; i++) {
-					grids.push_back(getGrid(minPoint) + i % SizeX + (i / SizeX * l_Size));
-				}
-			}
-			return grids;
-		 }
-
-		void InsertBox(SimpleBoundingBox * Box) {
-			std::vector<int> grids = getIntersectingGrids(Box);
-			for (int i = 0; i < grids.size(); i++) {
-				l_Grids[grids[i]].addBox(Box);
-			}
-		}
-
-		void RemoveBox(SimpleBoundingBox * Box) {
-			std::vector<int> grids = getIntersectingGrids(Box);
-			for (int i = 0; i < grids.size(); i++) {
-				l_Grids[grids[i]].removeBox(Box);
-			}
-		}
-
-		std::string getBoxes(SimpleBoundingBox * Box) {
-			std::vector<int> grids = getIntersectingGrids(Box);
-			std::string boxes;
-			for (int i = 0; i < grids.size(); i++) {
-				boxes = boxes + std::to_string(grids[i]) + '\n';
-			}
-			return boxes;
-		}
+		std::string getIntersectedTileNames(SimpleBoundingBox * Box);
 
 	};
 }

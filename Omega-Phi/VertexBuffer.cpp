@@ -24,6 +24,7 @@ OP::VertexBuffer::VertexBuffer()
 	glVertexAttribPointer(3, 1, GL_INT, GL_FALSE, sizeof(Vertex), (const GLvoid*)(offsetof(Vertex, Vertex::texMap)));
 
 	Unbind();
+	Vertices = new Vertex[MaxSize];
 }
 
 OP::VertexBuffer::~VertexBuffer()
@@ -50,7 +51,15 @@ void OP::VertexBuffer::Unbind() const
 void OP::VertexBuffer::startBuffer(int size)
 {
 	flush();
-	Vertices = new Vertex[size * 4];
+	if (size >= MaxSize) {
+
+		MaxSize = MaxSize * 2;
+		if (Vertices != nullptr)
+			delete[] Vertices;
+
+		Vertices = new Vertex[MaxSize];
+		startBuffer(size);
+	}
 }
 
 void OP::VertexBuffer::submit(Vertex vertex)
@@ -61,9 +70,10 @@ void OP::VertexBuffer::submit(Vertex vertex)
 
 void OP::VertexBuffer::flush()
 {
-	if (Vertices != nullptr)
+	/*if (Vertices != nullptr)
 		delete[] Vertices;
 	Vertices = nullptr;
+	*/
 	Index = 0;
 }
 

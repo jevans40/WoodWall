@@ -9,7 +9,10 @@ public:
 	BrickBreak() : Game("BrickBreak", 1280, 720) { Init(); }
 
 	void Init() override;
-
+	void gameUpdate() override {};
+	void gameRender
+	() override {};
+	void gameTick() override {};
 };
 
 

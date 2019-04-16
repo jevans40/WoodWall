@@ -21,21 +21,22 @@ namespace OP {
 	}
 
 	void Layer::Render() {
-		l_VertexBuffer.startBuffer(l_Sprites.size());
-		for (size_t i = 0; i < l_Sprites.size(); i++) {
-			Vertex* vert = l_Sprites[i]->getVertexArray();
-			l_VertexBuffer.submit(vert[0]);
-			l_VertexBuffer.submit(vert[1]);
-			l_VertexBuffer.submit(vert[2]);
-			l_VertexBuffer.submit(vert[3]);
+		if (l_Visibility) {
+
+			l_VertexBuffer.startBuffer(l_Sprites.size());
+			for (size_t i = 0; i < l_Sprites.size(); i++) {
+				Vertex* vert = l_Sprites[i]->getVertexArray();
+				l_VertexBuffer.submit(vert[0]);
+				l_VertexBuffer.submit(vert[1]);
+				l_VertexBuffer.submit(vert[2]);
+				l_VertexBuffer.submit(vert[3]);
+			}
 		}
-		//l_VertexBuffer.flush();
 	}
 
 	void Layer::AddRenderable(Renderable &renderable) { //Renderable renderable
 		l_Sprites.push_back(&renderable);
 		renderable.setLayer(this);
-		//std::sort(l_Sprites.begin(), l_Sprites.end(), [](Renderable * left, Renderable * right) {return  left->getZPos() < right->getZPos(); });
 	}
 
 	void Layer::removeRenderable(Renderable & renderable)
@@ -51,7 +52,7 @@ namespace OP {
 
 	int Layer::getPriority() const
 	{
-		return l_Priority;
+		return 0;
 	}
 
 	void Layer::AddTexture(GLuint texID, GLuint texUnit)
@@ -75,6 +76,11 @@ namespace OP {
 	bool Layer::getKey(const char* key)
 	{
 		return ((Game *) p_Game)->getKey(key[0]);
+	}
+
+	fvec2 Layer::getWindowSize()
+	{
+		return p_Game->getWindowSize();
 	}
 
 }

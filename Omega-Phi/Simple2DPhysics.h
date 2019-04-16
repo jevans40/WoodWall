@@ -73,7 +73,7 @@ namespace OP {
 			virtual void onCollision(Simple2DPhysics * left) = 0;
 
 			std::string getBoxes() {
-				return CollisionDetector.getBoxes(this);
+				return CollisionDetector.getIntersectedTileNames(this);
 			}
 			
 			// Access the Name

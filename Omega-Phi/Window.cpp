@@ -42,7 +42,7 @@ namespace OP {
 	Window::Window(const char * name = "Game name", int x = 0, int y = 0 ) {
 		Init();
 
-		size = { x,y };
+		size = { float(x),float(y) };
 
 		l_Window = glfwCreateWindow(x, y, name, NULL, NULL);
 		if (!l_Window)
@@ -105,9 +105,8 @@ namespace OP {
 		return nullptr;
 	}
 
-	void Window::UpdateKeys(char key, int action)
+	void Window::UpdateKeys(int key, int action)
 	{
-		std::cout << key << std::endl;
 		if (key == NULL) {
 			return;
 		}
@@ -131,13 +130,9 @@ namespace OP {
 		return l_KeyStates[key];
 	}
 
-	ivec2 Window::getSize()
+	OP::fvec2 Window::getSize()
 	{
 		return { size.x,size.y };
 	}
-
-
-
-
 
 }

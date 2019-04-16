@@ -143,16 +143,20 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\Omega-Phi\House.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\Omega-Phi\House.cpp" />
-    <ClCompile Include="..\Omega-Phi\main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Omega-Phi\Omega-Phi.vcxproj">
       <Project>{435d5b7b-b611-4229-aa73-a9ef9dfccb16}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="House.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MenuLayer.cpp" />
+    <ClCompile Include="WoodWall.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="House.h" />
+    <ClInclude Include="MenuLayer.h" />
+    <ClInclude Include="WoodWall.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

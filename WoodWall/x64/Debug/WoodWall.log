@@ -1,3 +1,3 @@
-﻿  {{xgSpeculativeTaskID=0000000F}}
-  {{xgSpeculativeTaskID=00000010}}
+﻿  MenuLayer.cpp
+c:\users\jesse\documents\github\woodwall\omega-phi\datastructure.h(196): warning C4086: expected pragma parameter to be '1', '2', '4', '8', or '16'
   WoodWall.vcxproj -> C:\Users\Jesse\Documents\GitHub\WoodWall\x64\Debug\WoodWall.exe

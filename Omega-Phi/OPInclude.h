@@ -15,10 +15,3 @@
 #include "FontLoader.h"
 #include "FileLoader.h"
 #include "ImageLoader.h"
-
-void InitializeOmegaPhi() {
-
-	OP::InitFreeImage();
-	OP::FontLoader::InitalizeFreeType(16);
-	OP::Initalization::run_init();
-}

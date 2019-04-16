@@ -11,6 +11,14 @@ namespace OP{
 		Window* l_Window;
 		Renderer l_Renderer;
 		std::vector<ImageAtlas*> l_SpriteAtlas;//(ImageAtlas*) malloc(GL_MAX_TEXTURE_UNITS * sizeof(ImageAtlas));
+		
+		std::chrono::milliseconds::rep timeSinceLastTick;
+		std::chrono::milliseconds::rep timeSinceLastFrame;
+
+		std::chrono::milliseconds::rep targetTickRate;
+		std::chrono::milliseconds::rep targetFrameRate;
+
+
 
 		OP::ivec2 l_size;
 
@@ -123,7 +131,15 @@ namespace OP{
 		int getWidth();
 
 
-		virtual void* OP::EventListner::HandleEvent(OP::OPEvent * event);
+		virtual void gameTick() = 0;
+
+		virtual void gameUpdate() = 0;
+
+		virtual void gameRender() = 0;
+
+		virtual void* OP::EventListner::HandleEvent(OP::OPEvent * event); \
+
+		fvec2 getWindowSize();
 	
 	};
 

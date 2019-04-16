@@ -44,9 +44,7 @@ void OP::Game::Start()
 		timeSinceLastUpdate = (millis.count() - last);
 		if (timeSinceLastFrame/1000 > (1 / targetFPS)) {
 			Render();
-			//std::cout << "Sprites = " << num << std::endl;
 			last = millis.count();
-			//l_Layers[0]->AddRenderable(*new OP::SimpleSprite(this, { float(num) / 100000 * 1280 ,(1 / float(timeSinceLastFrame / 1000)) / (300) * 720,1 }, { 10,10 }, 0xffffffff));
 			timeSinceLastFrame = 0;
 			fps++;
 		}
@@ -69,7 +67,6 @@ void OP::Game::AddLayer(Layer &newLayer)
 {
 	l_Renderer.addLayer(&newLayer);
 	l_Layers.push_back(&newLayer);
-	//Add multiple layers later
 	UpdateAtlas();
 }
 
@@ -144,6 +141,11 @@ int OP::Game::getHeight()
 int OP::Game::getWidth()
 {
 	return l_size.x;
+}
+
+OP::fvec2 OP::Game::getWindowSize()
+{
+	return l_Window->getSize();
 }
 
 

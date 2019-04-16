@@ -5,7 +5,7 @@ const std::vector < OP::SpriteLoc* > * OP::SimpleSprite::l_SpriteImages;
 
 OP::SimpleSprite::~SimpleSprite()
 {
-	std::cout << "Simple Sprite Destroyed!" << std::endl;
+
 }
 
 OP::SimpleSprite::SimpleSprite(fvec3 pos, fvec2 size, unsigned int Color) : Renderable(pos, size, Color)
@@ -65,6 +65,11 @@ void OP::SimpleSprite::addSprite(const std::vector <SpriteLoc *>  * sprites)
 void * OP::SimpleSprite::passEvent(const char * eventName, void * source, const char * eventMessage)
 {
 	return callListner(eventName,source,eventMessage );
+}
+
+void OP::SimpleSprite::setFiles()
+{
+	
 }
 
 

@@ -27,11 +27,12 @@ namespace OP {
 	protected:
 		const char* l_name;
 		Game * p_Game;
-		int l_Priority;
 		Shader l_Shader;
 		VertexBuffer l_VertexBuffer; 
-		//EVENT HANDLER FOR SENDING A DELETE SIGNAL TO GAME
 		std::vector<Renderable*> l_Sprites;
+
+		bool l_Visibility;
+		bool l_Loaded;
 
 	public:
 
@@ -47,7 +48,7 @@ namespace OP {
 		 */
 
 
-		Layer(Game * game, Shader &shader, const char* name = "Default Name", int priority = 0) : l_Shader(shader), p_Game(game), l_name(name), l_Priority(priority), l_Sprites() {
+		Layer(Game * game, Shader &shader, const char* name = "Default Name", bool Visible= true, bool Loaded = true) : l_Shader(shader), p_Game(game), l_name(name), l_Sprites(), l_Visibility(Visible), l_Loaded(Loaded) {
 		}
 
 		/**
@@ -97,11 +98,13 @@ namespace OP {
 		void removeRenderable(Renderable &renderable);
 
 		/**
+		/* DEPRICATED
 		 * @fn	int Layer::getPriority();
 		 *
 		 * @brief	Gets the priority
 		 *
 		 * @returns	The priority.
+		 * DEPRICATED
 		 */
 
 		int getPriority() const;
@@ -149,6 +152,15 @@ namespace OP {
 
 		bool getKey(const char* key);
 
+		/**
+		 * @fn	fvec2 Layer::getWindowSize();
+		 *
+		 * @brief	Gets window size
+		 *
+		 * @returns	The window size.
+		 */
+
+		fvec2 getWindowSize();
 	};
 
 }

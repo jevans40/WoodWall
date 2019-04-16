@@ -171,6 +171,7 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BoxNode.h" />
     <ClInclude Include="CollisionGrid.h" />
     <ClInclude Include="CollisionQuadTree.h" />
     <ClInclude Include="DataStructure.h" />
@@ -195,6 +196,7 @@
     <ClInclude Include="Layer.h" />
     <ClInclude Include="mat4f.h" />
     <ClInclude Include="OPInclude.h" />
+    <ClInclude Include="OPInitialize.h" />
     <ClInclude Include="OPMath.h" />
     <ClInclude Include="Renderable.h" />
     <ClInclude Include="Renderer.h" />

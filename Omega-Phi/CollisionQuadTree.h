@@ -1,3 +1,11 @@
+/**
+ *			DEPRICATED!!!
+ * @file	CollisionQuadTree.h.
+ *
+ * @brief	Declares the collision quad tree class
+ * 			DEPRICATED
+ */
+
 #pragma once
 #include "OPMath.h"
 #include <vector>

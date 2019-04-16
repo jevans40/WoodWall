@@ -20,7 +20,7 @@ class BreakBreakFrontLayer : public OP::Layer  {
 public:
 
 
-	BreakBreakFrontLayer(OP::Game * game) : Layer(game, (*new OP::Shader("./../res/Shaders/VertexShader.vert", "./../res/Shaders/FragShader.frag")), "BrickBreakFront", 0), myString(this, { -100,100,100 }) {
+	BreakBreakFrontLayer(OP::Game * game) : Layer(game, (*new OP::Shader("./../res/Shaders/VertexShader.vert", "./../res/Shaders/FragShader.frag")), "BrickBreakFront",true, true), myString(this, { -100,100,100 }) {
 		Init();
 	}
 
